@@ -16,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* Route::get('/', function () {
-    return view('index');
-}); */
-
 Route::view('/', 'index')->name('login')->middleware('guest');
 Route::post('login', LoginController::class);
 Route::post('logout', LogoutController::class);
