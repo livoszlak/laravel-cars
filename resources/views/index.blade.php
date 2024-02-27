@@ -1,6 +1,6 @@
 <div>
-    @csrf
     <form method="post" action="/login">
+        @csrf
         <div>
             <label for="email">Email</label>
             <input name="email" id="email" type="email" />
@@ -12,3 +12,4 @@
         <button type="submit">Login!</button>
     </form>
 </div>
+@include('errors')
