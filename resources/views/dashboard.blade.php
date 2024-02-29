@@ -1,3 +1,9 @@
 <div>
-    <!-- The only way to do great work is to love what you do. - Steve Jobs -->
+    <h1>This is the dashboard</h1>
+    <p>Hello, {{ $user->name }}!</p>
 </div>
+<form action="/logout" method="post">
+    @csrf
+<button action="submit">Logout {{$user->name}}</button></form>
+<br>
+@include('errors')
