@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CreateCarController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,5 @@ Route::view('/', 'index')->name('login')->middleware('guest');
 Route::post('login', LoginController::class);
 Route::post('logout', LogoutController::class);
 Route::get('dashboard', DashboardController::class)->middleware('auth');
+Route::get('profile', ProfileController::class)->middleware('auth');
+Route::post('cars', CreateCarController::class);

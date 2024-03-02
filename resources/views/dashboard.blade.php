@@ -7,3 +7,4 @@
 <button action="submit">Logout {{$user->name}}</button></form>
 <br>
 @include('errors')
+<a href="/profile" class="btn btn-primary">To profile</a>

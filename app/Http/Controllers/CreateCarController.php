@@ -14,15 +14,16 @@ class CreateCarController extends Controller
     public function __invoke(Request $request)
     {
         $this->validate($request, [
-            'registration_number' => 'required|string|min:10',
+            'registration_number' => 'required|string|min:6',
             'model' => 'required|string|min:1'
         ]);
 
-        $request->only('registration_number', 'model');
+        /* $input = $request->only('registration_number', 'model'); */
         $car = new Car;
-        $car->description = $request->description;
+        $car->registration_number = $request->registration_number;
+        $car->model = $request->model;
         $car->user_id = Auth::id();
         $car->save();
-        return redirect('dashboard')->with(['car' => $car]);
+        return redirect('profile')->with(['car' => $car]);
     }
 }
