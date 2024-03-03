@@ -14,7 +14,7 @@ class CreateCarController extends Controller
     public function __invoke(Request $request)
     {
         $this->validate($request, [
-            'registration_number' => 'required|string|min:6',
+            'registration_number' => 'required|unique:cars|string|min:6',
             'model' => 'required|string|min:1'
         ]);
 

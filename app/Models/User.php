@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Car::class, 'user_id');
     }
+
+    protected function laptimes(): HasMany
+    {
+        return $this->hasMany(Laptime::class, 'user_id');
+    }
 }
