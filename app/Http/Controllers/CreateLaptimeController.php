@@ -15,6 +15,7 @@ class CreateLaptimeController extends Controller
     {
         $this->validate($request, [
             'car_id' => 'required',
+            'track_id' => 'required',
             'date' => 'required|date',
             'time' => 'required|string|regex:/^\d{1,2}:\d{2}$/',
         ]);
@@ -23,6 +24,7 @@ class CreateLaptimeController extends Controller
         $laptime = new Laptime;
         $laptime->user_id = Auth::id();
         $laptime->car_id = $request->car_id;
+        $laptime->track_id = $request->track_id;
         $laptime->date = $request->date;
         $laptime->time = $request->time;
         $laptime->save();

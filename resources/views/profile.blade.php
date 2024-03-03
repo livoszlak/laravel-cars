@@ -25,7 +25,7 @@
         <form action="laptimes/{{$laptime->id}}/delete" method="post">
             @csrf
             @method('patch')
-        Car: {{ $laptime->car->model }} Date: {{$laptime->date}} Time: {{$laptime->time}}
+        Car: {{ $laptime->car->model }} Date: {{$laptime->date}} Time: {{$laptime->time}} Track: {{$laptime->track->track_name}}
         <button type="submit">Delete</button>
         </form>
     </li>
@@ -56,9 +56,11 @@
     <input type="date" name="date" id="date">
     <label for="time">Time in minutes:seconds format: </label>
     <input type="text" name="time" id="time">
+    <label for="track">Track: </label>
+    <select name="track_id" id="track_id">
+        @foreach($tracks as $track)
+        <option value="{{ $track->id }}">{{ $track->track_name }}</option>
+        @endforeach
+    </select>
     <button type="submit">Add record time</button>
 </form>
-
-{{$user}}
-<br>
-{{$user->laptimes}}

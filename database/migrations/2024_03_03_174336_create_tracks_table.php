@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('tracks', function (Blueprint $table) {
             $table->id();
+            $table->string('track_name');
+            $table->double('track_length');
             $table->timestamps();
         });
     }

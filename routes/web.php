@@ -7,6 +7,7 @@ use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfileShowController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,4 @@ Route::get('leaderboard', LeaderboardController::class)->middleware('auth');
 Route::get('profile', ProfileController::class)->middleware('auth');
 Route::post('cars', CreateCarController::class);
 Route::post('laptimes', CreateLaptimeController::class);
+Route::get('profile', ProfileShowController::class)->name('profile');

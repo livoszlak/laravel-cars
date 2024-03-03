@@ -13,12 +13,18 @@ class Laptime extends Model
     protected $fillable = [
         'user_id',
         'car_id',
+        'track_id',
         'date',
         'time'
     ];
 
     public function car(): BelongsTo
     {
-        return $this->belongsTo('App\Models\Car');
+        return $this->belongsTo(Car::class);
+    }
+
+    public function track(): BelongsTo
+    {
+        return $this->belongsTo(Track::class);
     }
 }
