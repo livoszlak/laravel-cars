@@ -10,6 +10,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileShowController;
+use App\Http\Controllers\UpdateCarController;
+use App\Http\Controllers\UpdateLaptimeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,8 +31,14 @@ Route::post('logout', LogoutController::class);
 Route::get('dashboard', DashboardController::class)->middleware('auth');
 Route::get('leaderboard', LeaderboardController::class)->middleware('auth');
 Route::get('profile', ProfileController::class)->middleware('auth');
+
+Route::get('profile', ProfileShowController::class)->name('profile');
+
 Route::post('cars', CreateCarController::class);
 Route::post('laptimes', CreateLaptimeController::class);
-Route::get('profile', ProfileShowController::class)->name('profile');
+
 Route::patch('cars/{car}/delete', DeleteCarController::class);
 Route::patch('laptimes/{laptime}/delete', DeleteLaptimeController::class);
+
+Route::post('cars/{car}/update', UpdateCarController::class);
+Route::post('laptimes/{laptime}/update', UpdateLaptimeController::class);
