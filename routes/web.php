@@ -3,6 +3,8 @@
 use App\Http\Controllers\CreateCarController;
 use App\Http\Controllers\CreateLaptimeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DeleteCarController;
+use App\Http\Controllers\DeleteLaptimeController;
 use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -30,3 +32,5 @@ Route::get('profile', ProfileController::class)->middleware('auth');
 Route::post('cars', CreateCarController::class);
 Route::post('laptimes', CreateLaptimeController::class);
 Route::get('profile', ProfileShowController::class)->name('profile');
+Route::patch('cars/{car}/delete', DeleteCarController::class);
+Route::patch('laptimes/{laptime}/delete', DeleteLaptimeController::class);

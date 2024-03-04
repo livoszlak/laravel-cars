@@ -17,7 +17,7 @@ class Car extends Model
         'user_id'
     ];
 
-    protected function laptime(): HasMany
+    public function laptimes(): HasMany
     {
         return $this->hasMany(Laptime::class, 'car_id');
     }
