@@ -46,11 +46,11 @@
     @csrf
     <label for="car">Car: </label>
     <select name="car_id" id="car">
-        {{-- @if ($user->cars != null && count($user->cars > 0)) --}}
+        @if ($user->cars != null && count($user->cars) > 0)
         @foreach ($user->cars as $car)
         <option value="{{ $car->id }}">{{ $car->model }}</option>
         @endforeach
-         {{-- @endif --}}
+         @endif
     </select>
     <label for="date">Date: </label>
     <input type="date" name="date" id="date">
@@ -65,6 +65,7 @@
     <button type="submit">Add record time</button>
 </form>
 
+@if ($user->cars != null && count($user->cars) > 0)
 <h3>Update car</h3>
 <form action="cars/{{$car->id}}/update" method="post">
     @csrf
@@ -81,7 +82,9 @@
     <input type="text" name="model" id="model">
     <button type="submit">Update car</button>
 </form>
+@endif
 
+@if ($user->laptimes != null && count($user->laptimes) > 0)
 <h3>Update time</h3>
 <form action="laptimes/{{$laptime->id}}/update" method="post">
     @csrf
@@ -104,3 +107,4 @@
     </select>
     <button type="submit">Update time</button>
 </form>
+@endif

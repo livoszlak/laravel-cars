@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CreateCarController;
 use App\Http\Controllers\CreateLaptimeController;
+use App\Http\Controllers\CreateUserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeleteCarController;
 use App\Http\Controllers\DeleteLaptimeController;
@@ -31,11 +32,13 @@ Route::post('logout', LogoutController::class);
 Route::get('dashboard', DashboardController::class)->middleware('auth');
 Route::get('leaderboard', LeaderboardController::class)->middleware('auth');
 Route::get('profile', ProfileController::class)->middleware('auth');
+Route::view('register', 'register')->name('register')->middleware('guest');
 
 Route::get('profile', ProfileShowController::class)->name('profile');
 
 Route::post('cars', CreateCarController::class);
 Route::post('laptimes', CreateLaptimeController::class);
+Route::post('users', CreateUserController::class);
 
 Route::patch('cars/{car}/delete', DeleteCarController::class);
 Route::patch('laptimes/{laptime}/delete', DeleteLaptimeController::class);
