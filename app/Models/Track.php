@@ -23,6 +23,6 @@ class Track extends Model
 
     public function track(): BelongsTo
     {
-        return $this->belongsTo('App\Models\Track');
+        return $this->belongsTo(Track::class);
     }
 }
