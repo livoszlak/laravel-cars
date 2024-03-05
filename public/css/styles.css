@@ -1,0 +1,68 @@
+:root {
+    --midnightblue: #03001d;
+    --royalblue: #06327f;
+    --crimson: #d4002a;
+    --snow: #fffafa;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--snow);
+}
+
+.hero-container {
+    width: 100%;
+    background-color: gray;
+    height: 300px;
+}
+
+.form-container,
+.email-container,
+.password-container,
+.login-container,
+.register-container {
+    margin: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    flex-direction: column;
+}
+
+.inlog-container {
+    flex-direction: row;
+}
+
+.login,
+.register {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    color: var(--midnightblue);
+    font-size: 20px;
+    width: 187px;
+    height: 44px;
+    margin-right: 30px;
+    border-radius: 20px;
+    background: linear-gradient(var(--snow), var(--snow)) padding-box,
+        linear-gradient(to right, var(--crimson), var(--royalblue)) border-box;
+    border-radius: 50em;
+    border: 2px solid transparent;
+}
+
+input {
+    max-width: 300px;
+    height: 50px;
+    font-size: 30px;
+}
+
+p {
+    text-align: center;
+    color: var(--snow);
+    font-size: 32px;
+    color: var(--midnightblue);
+}
