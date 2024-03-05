@@ -8,7 +8,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--snow);
+    background-color: var(--midnightblue);
 }
 
 .hero-container {
@@ -18,51 +18,64 @@ body {
 }
 
 .form-container,
-.email-container,
-.password-container,
-.login-container,
-.register-container {
-    margin: 100px;
+.register-container,
+.logo {
+    padding: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 30px;
 }
 
-.form-container {
+.form-container,
+.login-container,
+.container {
     flex-direction: column;
 }
 
-.inlog-container {
-    flex-direction: row;
-}
-
 .login,
-.register {
+a,
+.submit {
     justify-content: center;
     align-items: center;
     display: flex;
     text-align: center;
-    color: var(--midnightblue);
+    color: var(--snow);
     font-size: 20px;
     width: 187px;
     height: 44px;
-    margin-right: 30px;
+    margin: 15px;
     border-radius: 20px;
-    background: linear-gradient(var(--snow), var(--snow)) padding-box,
-        linear-gradient(to right, var(--crimson), var(--royalblue)) border-box;
+    background: linear-gradient(to right, var(--crimson), var(--royalblue))
+        border-box;
     border-radius: 50em;
     border: 2px solid transparent;
 }
 
-input {
+input,
+label {
     max-width: 300px;
     height: 50px;
     font-size: 30px;
+    margin: 5px;
+    color: var(--crimson);
 }
 
-p {
+p,
+h1 {
     text-align: center;
     color: var(--snow);
     font-size: 32px;
-    color: var(--midnightblue);
+}
+
+.logo {
+    background-color: aqua;
+    width: 50px;
+    height: 50px;
+}
+
+.footer {
+    width: 50px;
+    height: 50px;
+    background-color: var(--crimson);
 }

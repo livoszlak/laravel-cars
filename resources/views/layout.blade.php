@@ -9,7 +9,7 @@
 
 <body>
     <header>
-
+        <div class="logo"></div>
     </header>
 
     <main>
@@ -17,6 +17,6 @@
     </main>
 
     <footer>
-
     </footer>
 </body>
+</html>

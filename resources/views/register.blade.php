@@ -1,18 +1,24 @@
+@extends('layout')
+
+@section('title', 'Car app')
+@section('content')
+
 <div>
     <form action="users" method="post">
         @csrf
-        <div>
+        <div class="form-container">
             <label for="name">Username</label>
             <input name="name" id="name" type="text">
-        </div>
-        <div>
+
+
             <label for="email">Email</label>
             <input name="email" id="email" type="email" />
-        </div>
-        <div>
+
             <label for="password">Password</label>
             <input name="password" id="password" type="password" />
-        </div>
-        <button type="submit">Register</button>
+
+        <button class="submit" type="submit">Register</button>
+    </div>
     </form>
 </div>
+@endsection
