@@ -1,3 +1,4 @@
+
 <p>Hello, {{$user->name}}!</p>
 <p>Profile page - your cars and their records live here</p>
 <br>
