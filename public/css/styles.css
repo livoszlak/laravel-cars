@@ -34,7 +34,7 @@ body {
 }
 
 .login,
-a,
+.btn-btn-primary,
 .submit {
     justify-content: center;
     align-items: center;
@@ -58,7 +58,7 @@ label {
     height: 50px;
     font-size: 30px;
     margin: 5px;
-    color: var(--crimson);
+    color: var(--snow);
 }
 
 p,
@@ -78,4 +78,46 @@ h1 {
     width: 50px;
     height: 50px;
     background-color: var(--crimson);
+}
+
+/* Leaderboard */
+
+.leaderboard-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaderboard-container {
+    text-align: center;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.leaderboard {
+    color: var(--snow);
+    border-collapse: collapse;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.leaderboard-head {
+    background-color: var(--crimson);
+    margin: 15px;
+    width: 1000px;
+}
+
+.leaderboard-body {
+    background-color: var(--crimson);
+    width: 1000px;
+}
+
+th,
+td {
+    padding: 8px;
+}
+th {
+    text-align: left;
 }
