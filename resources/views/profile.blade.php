@@ -55,7 +55,7 @@
     </select>
     <label for="date">Date: </label>
     <input type="date" name="date" id="date">
-    <label for="time">Time in minutes:seconds format: </label>
+    <label for="time">Time in minutes:seconds:milliseconds format (59:32:924): </label>
     <input type="text" name="time" id="time">
     <label for="track">Track: </label>
     <select name="track_id" id="track_id">

@@ -23,7 +23,7 @@ class LaptimeFactory extends Factory
             'car_id' => null,
             'track_id' => null,
             'date' => $this->faker->date(),
-            'time' => $this->faker->time(),
+            'time' => sprintf('%02d:%02d:%03d', $this->faker->numberBetween(0, 59), $this->faker->numberBetween(0, 59), $this->faker->numberBetween(0, 999)),
         ];
     }
 }
