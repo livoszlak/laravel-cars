@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Car;
+use App\Models\Track;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,11 @@ class LaptimeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => null,
+            'car_id' => null,
+            'track_id' => null,
+            'date' => $this->faker->date(),
+            'time' => $this->faker->time(),
         ];
     }
 }
