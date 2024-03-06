@@ -33,7 +33,7 @@ class CarFactory extends Factory
             "Aspark Owl"
         ];
         return [
-            'registration_number' => $this->faker->unique()->bothify('#######'),
+            'registration_number' => strtoupper($this->faker->unique()->bothify('???###?')),
             'model' => $this->faker->randomElement($models),
             'user_id' => null
         ];
