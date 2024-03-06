@@ -17,7 +17,7 @@ class CreateLaptimeController extends Controller
             'car_id' => 'required',
             'track_id' => 'required',
             'date' => 'required|date',
-            'time' => 'required|string|regex:/^\d{1,2}:\d{2}$/',
+            'time' => 'required|string|regex:/^\d{2}:\d{2}:\d{3}$/',
         ]);
 
         /* $input = $request->only('date', 'time'); */
@@ -28,6 +28,6 @@ class CreateLaptimeController extends Controller
         $laptime->date = $request->date;
         $laptime->time = $request->time;
         $laptime->save();
-        return redirect('profile')->with(['laptime' => $laptime]);
+        return redirect('your-times')->with(['laptime' => $laptime]);
     }
 }

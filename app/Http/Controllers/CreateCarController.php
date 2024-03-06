@@ -24,6 +24,6 @@ class CreateCarController extends Controller
         $car->model = $request->model;
         $car->user_id = Auth::id();
         $car->save();
-        return redirect('profile')->with(['car' => $car]);
+        return redirect('your-cars')->with(['car' => $car]);
     }
 }

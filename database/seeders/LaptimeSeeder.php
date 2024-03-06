@@ -27,7 +27,7 @@ class LaptimeSeeder extends Seeder
                     'car_id' => $car->id,
                     'track_id' => $track->id,
                     'date' => $faker->date(),
-                    'time' => $faker->time(),
+                    'time' => sprintf('%02d:%02d:%03d', $faker->numberBetween(0, 59), $faker->numberBetween(0, 59), $faker->numberBetween(0, 999)),
                 ]);
             }
         }

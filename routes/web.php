@@ -11,8 +11,12 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileShowController;
+use App\Http\Controllers\RegisterCarController;
+use App\Http\Controllers\RegisterTimeController;
 use App\Http\Controllers\UpdateCarController;
 use App\Http\Controllers\UpdateLaptimeController;
+use App\Http\Controllers\YourCarsController;
+use App\Http\Controllers\YourTimesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,12 +31,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'index')->name('login')->middleware('guest');
+Route::view('register', 'register')->name('register')->middleware('guest');
+Route::get('register-car', RegisterCarController::class)->middleware('auth');
+Route::get('register-time', RegisterTimeController::class)->middleware('auth');
+Route::get('your-cars', YourCarsController::class)->middleware('auth');
+Route::get('your-times', YourTimesController::class)->middleware('auth');
+
 Route::post('login', LoginController::class);
 Route::post('logout', LogoutController::class);
 Route::get('dashboard', DashboardController::class)->middleware('auth');
 Route::get('leaderboard', LeaderboardController::class)->middleware('auth');
 Route::get('profile', ProfileController::class)->middleware('auth');
-Route::view('register', 'register')->name('register')->middleware('guest');
 
 Route::get('profile', ProfileShowController::class)->name('profile');
 
