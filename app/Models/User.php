@@ -44,12 +44,12 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    protected function cars(): HasMany
+    public function cars(): HasMany
     {
         return $this->hasMany(Car::class, 'user_id');
     }
 
-    protected function laptimes(): HasMany
+    public function laptimes(): HasMany
     {
         return $this->hasMany(Laptime::class, 'user_id');
     }
