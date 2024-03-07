@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'index')->name('login')->middleware('guest');
 Route::view('register', 'register')->name('register')->middleware('guest');
+Route::view('login', 'login')->name('login')->middleware('guest');
 
 Route::get('register-car', RegisterCarController::class)->middleware('auth');
 Route::get('register-time', RegisterTimeController::class)->middleware('auth');
