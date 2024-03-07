@@ -21,7 +21,7 @@
       <th>Car</th>
       <th>Lap Time</th>
       <th>Date</th>
-      <th>Registration Number<th>
+      <th>Registration Number</th>
     </tr>
   </thead>
   <tbody class="leaderboard-body">
