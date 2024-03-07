@@ -23,3 +23,4 @@
     <button type="submit">Add record time</button>
 </form>
 </div>
+@include('errors')

@@ -9,3 +9,4 @@
         <button type="submit">Add car</button>
     </form>
 </div>
+@include('errors')

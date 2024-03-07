@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Exception;
+use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
@@ -36,7 +36,9 @@ class CreateUserController extends Controller
             $user->save();
 
             return redirect('/')->with(['user' => $user]);
-        } catch (Exception $e) {
+        } catch (ValidationException $e) {
+            return redirect('/')->withErrors('An unexpected error occurred.');
+        } catch (\Exception $e) {
             return redirect('/')->withErrors('An unexpected error occurred.');
         }
     }
