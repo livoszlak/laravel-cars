@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('registration_number', 12);
             $table->string('model', 70);
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

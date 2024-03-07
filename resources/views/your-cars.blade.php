@@ -10,7 +10,7 @@
     <form action="cars/{{$car->id}}/delete" method="post">
         @csrf
         @method('patch')
-    {{$car->model}} {{$car->registration_number}}
+    {{$car->model}} {{$car->registration_number}} {{ $car->active }}
     <button type="submit">Delete</button>
     </form>
 </li>
@@ -26,7 +26,24 @@
 @if ($user->cars != null && count($user->cars) > 0)
 
 <form class="form-container" action="cars/update" method="post">
-<h3>Update car</h3>
+    <h3>Update car</h3>
+        @csrf
+        <label for="car_id">Car: </label>
+        <select name="car_id" id="car_id">
+            @foreach ($user->cars as $car)
+            @if ($car->active == true)
+            <option value="{{ $car->id }}">{{ $car->model }} {{ $car->registration_number }}</option>
+            @endif
+            @endforeach
+        </select>
+        <label for="registration_number">Registration number: </label>
+        <input type="text" name="registration_number" id="registration_number">
+        <label for="model">Model: </label>
+        <input type="text" name="model" id="model">
+        <button type="submit">Update car</button>
+    </form>
+
+<form class="form-container" action="cars/toggleActive" method="post">
     @csrf
     <label for="car_id">Car: </label>
     <select name="car_id" id="car_id">
@@ -34,11 +51,7 @@
         <option value="{{ $car->id }}">{{ $car->model }} {{ $car->registration_number }}</option>
         @endforeach
     </select>
-    <label for="registration_number">Registration number: </label>
-    <input type="text" name="registration_number" id="registration_number">
-    <label for="model">Model: </label>
-    <input type="text" name="model" id="model">
-    <button type="submit">Update car</button>
+    <button type="submit">Toggle active/inactive</button>
 </form>
 @endif
 @include('errors')
