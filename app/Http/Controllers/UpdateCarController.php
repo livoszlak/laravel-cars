@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class UpdateCarController extends Controller
 {
@@ -27,12 +28,16 @@ class UpdateCarController extends Controller
             'model' => 'required|string|min:1'
         ], $messages);
 
-        /* try { */
-        $car = Car::find($id);
-        $car->registration_number = $request->registration_number;
-        $car->model = $request->model;
-        $car->save();
-        return redirect('your-cars')->with(['car' => $car]);
-        /* } */
+        try {
+            $car = Car::find($id);
+            $car->registration_number = $request->registration_number;
+            $car->model = $request->model;
+            $car->save();
+            return redirect('your-cars')->with(['car' => $car]);
+        } catch (ValidationException $e) {
+            return redirect('your-cars')->withErrors($e->errors());
+        } catch (\Exception $e) {
+            return redirect('your-cars')->withErrors("An unexpected error occurred.");
+        }
     }
 }

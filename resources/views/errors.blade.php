@@ -1,7 +1,9 @@
 <div>
     @if ($errors->any())
-<p>
-    <u>{{ $errors->first() }}</u>
-</p>
-@endif
+        @foreach ($errors->all() as $error)
+            <p>
+                {{ $error }}
+            </p>
+        @endforeach
+    @endif
 </div>

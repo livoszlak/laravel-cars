@@ -53,4 +53,4 @@ Route::patch('cars/{car}/delete', DeleteCarController::class);
 Route::patch('laptimes/{laptime}/delete', DeleteLaptimeController::class);
 
 Route::post('cars/update', UpdateCarController::class);
-Route::post('laptimes/{laptime}/update', UpdateLaptimeController::class);
+Route::post('laptimes/update', UpdateLaptimeController::class);
