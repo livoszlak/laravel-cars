@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\CreateCarController;
 use App\Http\Controllers\CreateLaptimeController;
 use App\Http\Controllers\CreateUserController;
@@ -51,6 +52,7 @@ Route::post('laptimes', CreateLaptimeController::class);
 Route::post('users', CreateUserController::class);
 Route::post('cars/update', UpdateCarController::class);
 Route::post('laptimes/update', UpdateLaptimeController::class);
+Route::post('cars/toggleActive', [CarController::class, 'toggleActive']);
 
 Route::patch('cars/{car}/delete', DeleteCarController::class);
 Route::patch('laptimes/{laptime}/delete', DeleteLaptimeController::class);

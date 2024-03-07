@@ -62,4 +62,22 @@ class CarController extends Controller
     {
         //
     }
+
+    public function toggleActive(Request $request)
+    {
+        $id = $request->input('car_id');
+
+        try {
+            $car = Car::find($id);
+            if ($car->active) {
+                $car->active = false;
+            } else if (!$car->active) {
+                $car->active = true;
+            }
+            $car->save();
+            return redirect('your-cars')->with(['car' => $car]);
+        } catch (\Exception $e) {
+            return redirect('your-cars')->withErrors('An unexpected error occurred.');
+        }
+    }
 }

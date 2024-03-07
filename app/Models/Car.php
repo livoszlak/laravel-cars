@@ -14,7 +14,8 @@ class Car extends Model
     protected $fillable = [
         'registration_number',
         'model',
-        'user_id'
+        'user_id',
+        'active'
     ];
 
     public function laptimes(): HasMany
