@@ -19,7 +19,7 @@
     </div>
         <div class="register-container">
 
-        <a href="/register" class="btn btn-primary">Register</a>
+        <a href="/register" class="btn-btn-primary">Register</a>
 </div>
     </form>
 @include('errors')
