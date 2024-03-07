@@ -28,4 +28,9 @@ class Laptime extends Model
     {
         return $this->belongsTo(Track::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
