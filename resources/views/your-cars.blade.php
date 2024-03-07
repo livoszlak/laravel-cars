@@ -15,3 +15,22 @@
 </ul>
 @endif
 </div>
+
+@if ($user->cars != null && count($user->cars) > 0)
+<h3>Update car</h3>
+<form action="cars/update" method="post">
+    @csrf
+    <label for="car_id">Car: </label>
+    <select name="car_id" id="car_id">
+        @foreach ($user->cars as $car)
+        <option value="{{ $car->id }}">{{ $car->model }} {{ $car->registration_number }}</option>
+        @endforeach
+    </select>
+    <label for="registration_number">Registration number: </label>
+    <input type="text" name="registration_number" id="registration_number">
+    <label for="model">Model: </label>
+    <input type="text" name="model" id="model">
+    <button type="submit">Update car</button>
+</form>
+@endif
+@include('errors')

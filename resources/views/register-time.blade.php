@@ -6,7 +6,7 @@
     <select name="car_id" id="car">
         @if ($user->cars != null && count($user->cars) > 0)
         @foreach ($user->cars as $car)
-        <option value="{{ $car->id }}">{{ $car->model }}</option>
+        <option value="{{ $car->id }}">{{ $car->model }} {{ $car->registration_number }}</option>
         @endforeach
          @endif
     </select>
@@ -23,3 +23,4 @@
     <button type="submit">Add record time</button>
 </form>
 </div>
+@include('errors')
