@@ -21,7 +21,7 @@
                         </tr>
                     </thead>
                     <tbody class="leaderboard-body">
-                        @foreach($user->laptimes as $index => $laptime)
+                        @foreach($laptimes as $index => $laptime)
                         <tr>
                             <td>{{ $index + 1 }}</td>
                             <td>{{ $laptime->car->model }}</td>
@@ -44,6 +44,7 @@
 
 @endif
 </div>
+{{ $laptimes->links() }}
 
 @if ($user->laptimes != null && count($user->laptimes) > 0)
 <h3>Update time</h3>

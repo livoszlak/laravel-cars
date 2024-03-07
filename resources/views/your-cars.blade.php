@@ -33,7 +33,7 @@
             @foreach ($user->cars as $car)
             @if ($car->active == true)
             <option value="{{ $car->id }}">{{ $car->model }} {{ $car->registration_number }}</option>
-            @endif
+             @endif
             @endforeach
         </select>
         <label for="registration_number">Registration number: </label>
