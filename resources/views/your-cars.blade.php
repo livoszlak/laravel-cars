@@ -18,9 +18,9 @@
 
 @if ($user->cars != null && count($user->cars) > 0)
 <h3>Update car</h3>
-<form action="cars/{{$car->id}}/update" method="post">
+<form action="cars/update" method="post">
     @csrf
-    <label for="car">Car: </label>
+    <label for="car_id">Car: </label>
     <select name="car_id" id="car_id">
         @foreach ($user->cars as $car)
         <option value="{{ $car->id }}">{{ $car->model }} {{ $car->registration_number }}</option>
@@ -33,3 +33,4 @@
     <button type="submit">Update car</button>
 </form>
 @endif
+@include('errors')

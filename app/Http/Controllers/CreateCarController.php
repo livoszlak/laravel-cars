@@ -18,7 +18,9 @@ class CreateCarController extends Controller
         $messages = [
             'registration_number.required' => 'The registration number must be filled in.',
             'registration_number.unique' => 'The car with this registration number has already been registered.',
+            'registration_number.min' => 'The registration number must be at least 2 characters.',
             'model.required' => 'The car model name must be filled in.',
+            'model.min' => 'The car model name must be at least 1 character.',
         ];
 
         $this->validate($request, [

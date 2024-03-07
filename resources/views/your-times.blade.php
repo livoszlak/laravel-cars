@@ -40,3 +40,4 @@
     <button type="submit">Update time</button>
 </form>
 @endif
+@include('errors')
