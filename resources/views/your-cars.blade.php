@@ -1,4 +1,7 @@
-<div>
+@extends('layout')
+@section('title', 'Car app')
+@section('content')
+<div class="form-container">
     <h1>Your cars</h1>
 @if($user->cars != null && count($user->cars) > 0)
 <ul>
@@ -13,12 +16,17 @@
 </li>
 @endforeach
 </ul>
+@else
+    <div class="form-container">
+        <p>There are no cars</p>
+    </div>
 @endif
 </div>
 
 @if ($user->cars != null && count($user->cars) > 0)
+
+<form class="form-container" action="cars/update" method="post">
 <h3>Update car</h3>
-<form action="cars/update" method="post">
     @csrf
     <label for="car_id">Car: </label>
     <select name="car_id" id="car_id">
@@ -34,3 +42,4 @@
 </form>
 @endif
 @include('errors')
+@endsection
