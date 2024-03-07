@@ -5,10 +5,9 @@
 <div class="dropdown">
     <button class="dropbtn">Select track</button>
     <div class="dropdown-content">
-        <a href="#">track</a>
-        <a href="#">track</a>
-        <a href="#">track</a>
-        <a href="#">track</a>
+        @foreach ($tracks as $track)
+          <a href="{{ url('leaderboard/' . $track->id) }}">{{ $track->track_name }}</a>
+        @endforeach
     </div>
 </div>
 
@@ -26,16 +25,19 @@
     </tr>
   </thead>
   <tbody class="leaderboard-body">
+    @foreach($laptimes as $index => $laptime)
     <tr>
-      <td>1</td>
-      <td>name</td>
-      <td>car</td>
-      <td>00:00:000</td>
-      <td>01-03-2024</td>
-      <td>abc123<td>
+      <td>{{ $index + 1 }}</td>
+      <td>{{ $laptime->user->name }}</td>
+      <td>{{ $laptime->car->model }}</td>
+      <td>{{ $laptime->time }}</td>
+      <td>{{ $laptime->date }}</td>
+      <td>{{ $laptime->car->registration_number }}</td>
     </tr>
+    @endforeach
   </tbody>
 </table>
 </div>
 </div>
 @endsection
+

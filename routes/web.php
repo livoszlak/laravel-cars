@@ -32,25 +32,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'index')->name('login')->middleware('guest');
 Route::view('register', 'register')->name('register')->middleware('guest');
+
 Route::get('register-car', RegisterCarController::class)->middleware('auth');
 Route::get('register-time', RegisterTimeController::class)->middleware('auth');
 Route::get('your-cars', YourCarsController::class)->middleware('auth');
 Route::get('your-times', YourTimesController::class)->middleware('auth');
-
-Route::post('login', LoginController::class);
-Route::post('logout', LogoutController::class);
+Route::get('leaderboard/{track_id?}', [LeaderboardController::class, '__invoke'])->middleware('auth')->where('track_id', '[0-9]+')->defaults('track_id', 1);
 Route::get('dashboard', DashboardController::class)->middleware('auth');
 Route::get('leaderboard', LeaderboardController::class)->middleware('auth');
 Route::get('profile', ProfileController::class)->middleware('auth');
-
 Route::get('profile', ProfileShowController::class)->name('profile');
 
+Route::post('login', LoginController::class);
+Route::post('logout', LogoutController::class);
 Route::post('cars', CreateCarController::class);
 Route::post('laptimes', CreateLaptimeController::class);
 Route::post('users', CreateUserController::class);
+Route::post('cars/update', UpdateCarController::class);
+Route::post('laptimes/update', UpdateLaptimeController::class);
 
 Route::patch('cars/{car}/delete', DeleteCarController::class);
 Route::patch('laptimes/{laptime}/delete', DeleteLaptimeController::class);
-
-Route::post('cars/update', UpdateCarController::class);
-Route::post('laptimes/update', UpdateLaptimeController::class);
