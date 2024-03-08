@@ -18,6 +18,10 @@ body {
     background-color: var(--midnightblue);
 }
 
+main {
+    padding: 100px;
+}
+
 .hero-container {
     width: 100%;
     background-color: gray;
@@ -43,7 +47,7 @@ body {
 }
 
 .row-container {
-    text-align: center;
+    text-align: left;
     flex-direction: column;
 }
 
@@ -69,11 +73,15 @@ body {
 }
 
 input,
-label {
-    max-width: 300px;
+label,
+select {
+    width: 500px;
     height: 50px;
     font-size: 30px;
     margin: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 label {
@@ -92,10 +100,13 @@ h1 {
     height: 50px;
 }
 
-.footer {
-    width: 50px;
+footer {
+    width: 100%;
     height: 50px;
     background-color: var(--crimson);
+    position: relative;
+    left: 0;
+    bottom: 0;
 }
 
 /* Dashboard */
@@ -126,10 +137,10 @@ h1 {
     text-align: center;
     width: 100%;
     overflow-x: scroll;
+    position: relative;
 }
 
 .leaderboard {
-    color: var(--snow);
     border-collapse: collapse;
     overflow-x: auto;
     white-space: nowrap;
@@ -138,23 +149,40 @@ h1 {
 }
 
 .leaderboard-head {
-    background-color: var(--crimson);
-    margin: 15px;
-    width: 1000px;
+    background-color: var(--royalblue);
+    padding: 15px;
+    color: var(--snow);
 }
 
 .leaderboard-body {
     background-color: var(--crimson);
-    width: 1000px;
+}
+
+.leaderboard-body tr td {
+    background-color: var(--crimson);
+    color: var(--snow);
+}
+.leaderboard-head tr th:first-child,
+.leaderboard-body tr td:first-child {
+    background-color: var(--snow);
+    color: var(--crimson);
+    text-align: center;
+}
+
+.leaderboard-body tr:nth-child(even) td:not(:first-child) {
+    background-color: var(--darkcrimson);
+    color: var(--snow);
 }
 
 th,
 td {
     padding: 8px;
-}
-th {
     text-align: left;
 }
+th {
+    padding-bottom: 15px;
+}
+
 /* Dropdown */
 
 .dropbtn {
@@ -165,12 +193,10 @@ th {
     border: none;
     cursor: pointer;
 }
-
 .dropdown {
-    position: relative;
-    display: inline-block;
+    margin-bottom: 15px;
+    display: block;
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -226,3 +252,5 @@ th {
 .dropdown-content {
     left: 0;
 }
+
+/* select */

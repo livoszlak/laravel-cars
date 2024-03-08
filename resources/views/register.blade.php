@@ -17,8 +17,8 @@
             <label for="password">Password</label>
             <input name="password" id="password" type="password" />
 
-        <button class="submit" type="submit">Register</button>
-    </div>
+            <button class="submit" type="submit">Register</button>
+        </div>
     </form>
 </div>
 @include('errors')
