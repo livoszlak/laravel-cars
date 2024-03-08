@@ -41,19 +41,19 @@
             </table>
         </div>
     </div>
-
     @endif
 </div>
 {{ $laptimes->links() }}
 
 @if ($user->laptimes != null && count($user->laptimes) > 0)
-<h3>Update time</h3>
+
 <form class="form-container" action="laptimes/update" method="post">
+    <h3>Update your Laptime</h3>
     @csrf
     <div class="row-container">
         <label for="laptime_id">Laptime </label>
 
-        <div class="custom-select">
+        <div>
             <select name="laptime_id" id="laptime_id">
         </div>
         @foreach ($user->laptimes as $laptime)
@@ -75,14 +75,16 @@
     </div>
     <div class="row-container">
         <label for="track">Track: </label>
-        <div> <select name="track_id" id="track_id">
+        <div>
+            <select name="track_id" id="track_id">
                 @foreach($tracks as $track)
                 <option value="{{ $track->id }}">{{ $track->track_name }}</option>
-                @endforeach </div>
+                @endforeach
+        </div>
     </div>
     </select>
-    <div class="row-container">
-        <button type="submit">Update time</button>
+    <div class="form-container">
+        <button class="btn-btn-primary" type="submit">Update time</button>
     </div>
 </form>
 @endif

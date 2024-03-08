@@ -1,12 +1,17 @@
+@extends('layout')
+@section('title', 'Car app')
+@section('content')
 <div>
-    <h3>Add car</h3>
-    <form action="cars" method="post">
+
+    <form class="form-container" action="cars" method="post">
+        <h3>Add car</h3>
         @csrf
-        <label for="registration_number">Registration number: </label>
+        <label for="registration_number">Registration number </label>
         <input type="text" name="registration_number" id="registration_number">
-        <label for="model">Model: </label>
+        <label for="model">Model </label>
         <input type="text" name="model" id="model">
-        <button type="submit">Add car</button>
+        <button class="btn-btn-primary" type="submit">Add car</button>
     </form>
 </div>
 @include('errors')
+@endsection

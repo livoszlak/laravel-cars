@@ -1,7 +1,7 @@
 @extends('layout')
 @section('title', 'Car app')
 @section('content')
-<div class="align-dropdown">
+<div class="dropdown-align">
     <div class="dropdown">
         <button class="dropbtn">Select track</button>
         <div class="dropdown-content">
@@ -9,36 +9,36 @@
             <a href="{{ url('leaderboard/' . $track->id) }}">{{ $track->track_name }}</a>
             @endforeach
         </div>
-
-        <div class="leaderboard-parent">
-            <div class="leaderboard-container">
-
-
-                <table class="leaderboard">
-                    <thead class="leaderboard-head">
-                        <tr>
-                            <th class="white-th">#</th>
-                            <th>Name</th>
-                            <th>Car</th>
-                            <th>Lap Time</th>
-                            <th>Date</th>
-                            <th>Registration Number</th>
-                        </tr>
-                    </thead>
-                    <tbody class="leaderboard-body">
-                        @foreach($laptimes as $index => $laptime)
-                        <tr>
-                            <td class="white-th">{{ $index + 1 }}</td>
-                            <td>{{ $laptime->user->name }}</td>
-                            <td>{{ $laptime->car->model }}</td>
-                            <td>{{ $laptime->time }}</td>
-                            <td>{{ $laptime->date }}</td>
-                            <td>{{ $laptime->car->registration_number }}</td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
     </div>
-    @endsection
+</div>
+
+<div class="leaderboard-parent">
+    <div class="leaderboard-container">
+        <table class="leaderboard">
+            <thead class="leaderboard-head">
+                <tr>
+                    <th class="white-th">#</th>
+                    <th>Name</th>
+                    <th>Car</th>
+                    <th>Lap Time</th>
+                    <th>Date</th>
+                    <th>Registration Number</th>
+                </tr>
+            </thead>
+            <tbody class="leaderboard-body">
+                @foreach($laptimes as $index => $laptime)
+                <tr>
+                    <td class="white-th">{{ $index + 1 }}</td>
+                    <td>{{ $laptime->user->name }}</td>
+                    <td>{{ $laptime->car->model }}</td>
+                    <td>{{ $laptime->time }}</td>
+                    <td>{{ $laptime->date }}</td>
+                    <td>{{ $laptime->car->registration_number }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@endsection

@@ -1,7 +1,7 @@
 @extends('layout')
 @section('title', 'Car app')
 @section('content')
-<div>
+<div class="form-container">
     <h3>Add time</h3>
     <form class="form-container" action="laptimes" method="post">
         @csrf
@@ -38,7 +38,7 @@
         @endforeach
         </select>
 </div>
-<button type="submit">Add record time</button>
+<button class="btn-btn-primary" type="submit">Add record time </button>
 </form>
 @include('errors')
 @endsection
