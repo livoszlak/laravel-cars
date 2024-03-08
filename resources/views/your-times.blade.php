@@ -44,7 +44,8 @@
 
     @endif
 </div>
-{{ $laptimes->links() }}
+
+<div> {{ $laptimes->links() }} </div>
 
 @if ($user->laptimes != null && count($user->laptimes) > 0)
 <h3>Update time</h3>
