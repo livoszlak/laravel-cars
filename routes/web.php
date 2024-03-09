@@ -35,24 +35,26 @@ Route::view('/', 'index')->name('login')->middleware('guest');
 Route::view('register', 'register')->name('register')->middleware('guest');
 Route::view('login', 'login')->name('login')->middleware('guest');
 
-Route::get('register-car', RegisterCarController::class)->middleware('auth');
-Route::get('register-time', RegisterTimeController::class)->middleware('auth');
-Route::get('your-cars', YourCarsController::class)->middleware('auth');
-Route::get('your-times', YourTimesController::class)->middleware('auth');
-Route::get('leaderboard/{track_id?}', [LeaderboardController::class, '__invoke'])->middleware('auth')->where('track_id', '[0-9]+')->defaults('track_id', 1);
-Route::get('dashboard', DashboardController::class)->middleware('auth');
-Route::get('leaderboard', LeaderboardController::class)->middleware('auth');
-Route::get('profile', ProfileController::class)->middleware('auth');
+Route::middleware('auth')->group(function () {
+    Route::get('register-car', RegisterCarController::class);
+    Route::get('register-time', RegisterTimeController::class);
+    Route::get('your-cars', YourCarsController::class);
+    Route::get('your-times', YourTimesController::class);
+    Route::get('dashboard', DashboardController::class);
+    Route::get('profile', ProfileController::class);
+    Route::get('leaderboard/{track_id?}', LeaderboardController::class)->where('track_id', '[0-9]+')->defaults('track_id', 1);
+});
+
 Route::get('profile', ProfileShowController::class)->name('profile');
 
 Route::post('login', LoginController::class);
 Route::post('logout', LogoutController::class);
-Route::post('cars', CreateCarController::class);
-Route::post('laptimes', CreateLaptimeController::class);
 Route::post('users', CreateUserController::class);
-Route::post('cars/update', UpdateCarController::class);
+Route::post('laptimes', CreateLaptimeController::class);
 Route::post('laptimes/update', UpdateLaptimeController::class);
-Route::post('cars/toggleActive', [CarController::class, 'toggleActive']);
-
-Route::patch('cars/{car}/delete', DeleteCarController::class);
 Route::patch('laptimes/{laptime}/delete', DeleteLaptimeController::class);
+
+Route::post('cars', [CarController::class, 'create']);
+Route::post('cars/update', [CarController::class, 'update']);
+Route::patch('cars/{car}/delete', [CarController::class, 'destroy']);
+Route::post('cars/toggleActive', [CarController::class, 'toggleActive']);
