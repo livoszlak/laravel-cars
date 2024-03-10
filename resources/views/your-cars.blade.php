@@ -20,6 +20,7 @@
     <div class="form-container">
         <p>There are no cars</p>
     </div>
+    <a href="/register-car" class="btn-dashboard">Register new car</a>
     @endif
 </div>
 
