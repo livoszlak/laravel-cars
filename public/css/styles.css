@@ -267,10 +267,21 @@ p {
 .car-box {
     font-size: 16px;
     color: var(--snow);
+    padding: 1rem;
 }
 
 .btn-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+}
+
+.car-box > ul {
+    padding: 0;
+    list-style: none;
+}
+
+.car-box > ul > li::before {
+    content: "\00BB ";
+    padding-right: 5px;
 }

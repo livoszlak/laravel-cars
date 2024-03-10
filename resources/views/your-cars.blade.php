@@ -10,6 +10,7 @@
             <ul>
                 <li>{{$car->model}}</li>
                 <li>{{$car->registration_number}}</li>
+                <li>{{ count($car->laptimes) }} laptimes</li>
                 @if(!$car->active)
                 <li>Inactive</li>
                 @else
