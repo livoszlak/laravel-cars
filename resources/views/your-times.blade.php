@@ -30,7 +30,6 @@
                         <td>{{ $laptime->car->registration_number }}</td>
                         <td>{{$laptime->date}}</td>
                         <form action="laptimes/{{$laptime->id}}/delete" method="post">
-
                             @csrf
                             @method('patch')
                             <td><button type="submit">Delete</button></td>
@@ -40,6 +39,11 @@
                 </tbody>
             </table>
         </div>
+        @if (count($user->laptimes) == 0)
+        <div class="form-container">
+            <a href="/register-time" class="btn-dashboard">Register new time</a>
+        </div>
+        @endif
     </div>
     @endif
 </div>
