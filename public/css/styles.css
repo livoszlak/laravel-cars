@@ -68,6 +68,8 @@ body {
         linear-gradient(to right, var(--crimson), var(--royalblue)) border-box;
     border-radius: 50em;
     border: 2px solid transparent;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
 input,
@@ -251,4 +253,24 @@ p {
     font-family: "Poppins", sans-serif;
     color: var(--snow);
     text-transform: uppercase;
+}
+
+/* Your cars */
+
+.car-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.car-box {
+    font-size: 16px;
+    color: var(--snow);
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
