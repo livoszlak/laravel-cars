@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Car;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
 class CarController extends Controller
@@ -83,26 +84,29 @@ class CarController extends Controller
         $id = $request->input('car_id');
 
         $messages = [
-            'registration_number.required' => 'The registration number field must be filled in.',
+            'registration_number.filled' => 'The registration number field must be filled in.',
             'registration_number.unique' => 'The registration number must be unique.',
             'registration_number.min' => 'The registration number must be at least 2 characters.',
-            'model.required' => 'The model name must be filled in.',
+            'model.filled' => 'The model name must be filled in.',
             'model.min' => 'The model name must be at least 1 character.',
         ];
 
-        $this->validate($request, [
-            'registration_number' => 'required|unique:cars,registration_number,' . $id . '|string|min:2',
-            'model' => 'required|string|min:1'
-        ], $messages);
+        $rules = [
+            'registration_number' => 'sometimes|filled|unique:cars,registration_number,' . $id . '|string|min:2',
+            'model' => 'sometimes|filled|string|min:1'
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return redirect('your-cars')->withErrors($validator);
+        }
 
         try {
             $car = Car::find($id);
-            $car->registration_number = $request->registration_number;
-            $car->model = $request->model;
+            $car->fill($request->only('registration_number', 'model'));
             $car->save();
             return redirect('your-cars')->with(['car' => $car]);
-        } catch (ValidationException $e) {
-            return redirect('your-cars')->withErrors($e->errors());
         } catch (\Exception $e) {
             return redirect('your-cars')->withErrors("An unexpected error occurred.");
         }
