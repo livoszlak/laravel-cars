@@ -9,13 +9,12 @@
         <div class="leaderboard-container">
             <table class="leaderboard">
                 <thead class="leaderboard-head">
-
                     <tr>
                         <th>#</th>
                         <th>Car</th>
                         <th>Lap Time</th>
-                        <th>track</th>
-                        <th>Registration Number</th>
+                        <th>Track</th>
+                        <th>Registration #</th>
                         <th>Date</th>
                         <th> </th>
                     </tr>
@@ -51,13 +50,11 @@
 <div> {{ $laptimes->links() }} </div>
 
 @if ($user->laptimes != null && count($user->laptimes) > 0)
-
 <form class="form-container" action="laptimes/update" method="post">
     <h3>Update your Laptime</h3>
     @csrf
     <div class="row-container">
-        <label for="laptime_id">Laptime </label>
-
+        <label for="laptime_id">Laptime</label>
         <div>
             <select name="laptime_id" id="laptime_id">
         </div>
@@ -67,7 +64,7 @@
         </select>
     </div>
     <div class="row-container">
-        <label for="date">Date </label>
+        <label for="date">Date</label>
         <div>
             <input type="date" name="date" id="date">
         </div>
@@ -79,7 +76,7 @@
         </div>
     </div>
     <div class="row-container">
-        <label for="track">Track: </label>
+        <label for="track_id">Track</label>
         <div>
             <select name="track_id" id="track_id">
                 @foreach($tracks as $track)
