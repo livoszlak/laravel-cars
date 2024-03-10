@@ -50,45 +50,92 @@
 <div> {{ $laptimes->links() }} </div>
 
 @if ($user->laptimes != null && count($user->laptimes) > 0)
-<form class="form-container" action="laptimes/update" method="post">
-    <h3>Update your Laptime</h3>
-    @csrf
+<div class="form-container">
+    <h3>Update your laptimes</h3>
+
+    <!-- Form for updating date -->
     <div class="row-container">
-        <label for="laptime_id">Laptime</label>
-        <div>
-            <select name="laptime_id" id="laptime_id">
+        <form class="form-container" action="laptimes/update" method="post">
+            @csrf
+            <div class="row-container">
+                <label for="laptime_id">Laptime</label>
+                    <div>
+                        <select name="laptime_id" id="laptime_id">
+                    </div>
+                            @foreach ($user->laptimes as $laptime)
+                            <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>
+                            @endforeach
+                        </select>
+            </div>
         </div>
-        @foreach ($user->laptimes as $laptime)
-        <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>
-        @endforeach
-        </select>
-    </div>
-    <div class="row-container">
-        <label for="date">Date</label>
-        <div>
-            <input type="date" name="date" id="date">
+            <div class="row-container">
+                <label for="date">Date</label>
+                    <div>
+                        <input type="date" name="date" id="date">
+                    </div>
+            </div>
+            <div class="form-container">
+                <button class="btn-btn-primary" type="submit">Update time</button>
+            </div>
+        </form>
+
+        <!-- Form for updating time -->
+        <div class="row-container">
+        <form class="form-container" action="laptimes/update" method="post">
+            @csrf
+            <div class="row-container">
+                <label for="laptime_id">Laptime</label>
+                    <div>
+                        <select name="laptime_id" id="laptime_id">
+                    </div>
+                            @foreach ($user->laptimes as $laptime)
+                                <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>
+                            @endforeach
+                        </select>
+            </div>
         </div>
-    </div>
-    <div class="row-container">
-        <label for="time">Time</label>
-        <div>
-            <input type="text" name="time" id="time" placeholder="00:00:000">
+            <div class="row-container">
+                <label for="time">Time</label>
+                    <div>
+                        <input type="text" name="time" id="time" placeholder="00:00:000">
+                    </div>
+            </div>
+            <div class="form-container">
+                <button class="btn-btn-primary" type="submit">Update time</button>
+            </div>
+        </form>
+
+        <!-- Form for updating track -->
+        <div class="row-container">
+        <form class="form-container" action="laptimes/update" method="post">
+            @csrf
+            <div class="row-container">
+                <label for="laptime_id">Laptime</label>
+                    <div>
+                        <select name="laptime_id" id="laptime_id">
+                    </div>
+                        @foreach ($user->laptimes as $laptime)
+                            <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>
+                        @endforeach
+                        </select>
+            </div>
         </div>
+            <div class="row-container">
+                <label for="track_id">Track</label>
+                <div>
+                    <select name="track_id" id="track_id">
+                        @foreach($tracks as $track)
+                        <option value="{{ $track->id }}">{{ $track->track_name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-container">
+                    <button class="btn-btn-primary" type="submit">Update time</button>
+                </div>
+            </div>
+        </form>
     </div>
-    <div class="row-container">
-        <label for="track_id">Track</label>
-        <div>
-            <select name="track_id" id="track_id">
-                @foreach($tracks as $track)
-                <option value="{{ $track->id }}">{{ $track->track_name }}</option>
-                @endforeach
-        </div>
-    </div>
-    </select>
-    <div class="form-container">
-        <button class="btn-btn-primary" type="submit">Update time</button>
-    </div>
-</form>
+</div>
 @endif
 @include('errors')
 @endsection
