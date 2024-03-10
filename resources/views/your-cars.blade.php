@@ -4,18 +4,34 @@
 <div class="form-container">
     <h1>Your cars</h1>
     @if($user->cars != null && count($user->cars) > 0)
-    <ul>
+    <div class="car-container">
         @foreach($user->cars as $car)
-        <li>
+        <div class="car-box">
+            <ul>
+                <li>{{$car->model}}</li>
+                <li>{{$car->registration_number}}</li>
+                <li>{{ count($car->laptimes) }} laptimes</li>
+                @if(!$car->active)
+                <li>Inactive</li>
+                @else
+                <li>Active</li>
+                @endif
+            </ul>
+            <div class="btn-container">
             <form action="cars/{{$car->id}}/delete" method="post">
                 @csrf
                 @method('patch')
-                {{$car->model}} {{$car->registration_number}} {{ $car->active }}
                 <button type="submit">Delete</button>
             </form>
-        </li>
+            <form action="cars/toggleActive" method="post">
+                @csrf
+                <input type="hidden" name="car_id" value="{{ $car->id }}">
+                <button type="submit">@if(!$car->active) Activate @else Inactivate @endif</button>
+            </form>
+            </div>
+        </div>
         @endforeach
-    </ul>
+    </div>
     @else
     <div class="form-container">
         <p>There are no cars</p>
@@ -40,7 +56,7 @@
     </select>
     <label for="registration_number">Registration #: </label>
     <input type="text" name="registration_number" id="registration_number">
-    <button type="submit">Update Registration #</button>
+    <button class="btn-btn-primary" type="submit">Update Registration #</button>
 </form>
 
 <form class="form-container" action="cars/update" method="post">
@@ -55,10 +71,10 @@
     </select>
     <label for="model">Model: </label>
     <input type="text" name="model" id="model">
-    <button type="submit">Update Model</button>
+    <button class="btn-btn-primary" type="submit">Update Model</button>
 </form>
 
-<form class="form-container" action="cars/toggleActive" method="post">
+{{-- <form class="form-container" action="cars/toggleActive" method="post">
     @csrf
     <label for="car_id">Car: </label>
     <select name="car_id" id="car_id">
@@ -66,8 +82,8 @@
         <option value="{{ $car->id }}">{{ $car->model }} {{ $car->registration_number }}</option>
         @endforeach
     </select>
-    <button type="submit">Toggle active/inactive</button>
-</form>
+    <button class="btn-btn-primary" type="submit">Toggle active/inactive</button>
+</form> --}}
 @endif
 @include('errors')
 @endsection
