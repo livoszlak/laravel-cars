@@ -23,17 +23,18 @@ class UserController extends Controller
     public function create(Request $request)
     {
         $messages = [
-            'name.required' => 'The name field must be filled in.',
-            'email.required' => 'The email field must be filled in.',
+            'name.required' => 'Username must be filled in.',
+            'email.required' => 'Email must be filled in.',
             'email.email' => 'The email must be a valid email address.',
             'email.unique' => 'The email has already been registered.',
-            'password.required' => 'The password field must be filled in.',
+            'password.required' => 'Password must be filled in.',
+            'password.regex' => 'The password must be at least 8 characters long, and must contain at least one uppercase letter and at least 2 digits.'
         ];
 
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email:rfc|unique:users,email',
-            'password' => 'required'
+            'password' => ['required', 'regex:/^(?=.*[A-Z])(?=.*\d{2,}).{8,}$/']
         ], $messages);
 
         try {

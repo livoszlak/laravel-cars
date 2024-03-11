@@ -285,3 +285,15 @@ p {
     content: "\00BB ";
     padding-right: 5px;
 }
+
+/* Errors */
+
+.error-container {
+    width: 100vw;
+    padding: 50px 0 50px 0;
+}
+
+p.error {
+    font-size: 16px;
+    padding: 0px;
+}
