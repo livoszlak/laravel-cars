@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Laptime;
 use App\Models\Track;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class YourTimesController extends Controller
@@ -12,7 +11,7 @@ class YourTimesController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request)
+    public function __invoke()
     {
         $user = Auth::user();
         $tracks = Track::all();
