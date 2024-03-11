@@ -4,18 +4,17 @@
 <div>
     <h1>Your times</h1>
     @if($user->laptimes != null)
-
     <div class="leaderboard-parent">
         <div class="leaderboard-container">
             <table class="leaderboard">
                 <thead class="leaderboard-head">
                     <tr>
                         <th>#</th>
-                        <th>Car</th>
-                        <th>Lap time</th>
-                        <th>Track</th>
-                        <th>Registration #</th>
-                        <th>Date</th>
+                        <th><a href="{{ route('your-times', ['sort' => 'car_model', 'order' => $order]) }}">Car</a></th>
+                        <th><a href="{{ route('your-times', ['sort' => 'time', 'order' => $order]) }}">Lap time</a></th>
+                        <th><a href="{{ route('your-times', ['sort' => 'track', 'order' => $order]) }}">Track</a></th>
+                        <th><a href="{{ route('your-times', ['sort' => 'registration_number', 'order' => $order]) }}">Registration #</a></th>
+                        <th><a href="{{ route('your-times', ['sort' => 'date', 'order' => $order]) }}">Date</a></th>
                         <th> </th>
                     </tr>
                 </thead>
@@ -47,7 +46,7 @@
     @endif
 </div>
 
-<div> {{ $laptimes->links() }} </div>
+<div> {{ $laptimes->appends(['sort' => $sort])->links() }} </div>
 
 @if ($user->laptimes != null && count($user->laptimes) > 0)
 <div class="form-container">
@@ -73,11 +72,19 @@
         <div>
             <input type="date" name="date" id="date">
         </div>
-    </div>
-    <div class="form-container">
-        <button class="btn-btn-primary" type="submit">Update date</button>
-    </div>
-    </form>
+
+
+
+            <div class="row-container">
+                <label for="date">Date</label>
+                    <div>
+                        <input type="date" name="date" id="date" max="{{ date('Y-m-d') }}">
+                    </div>
+            </div>
+            <div class="form-container">
+                <button class="btn-btn-primary" type="submit">Update date</button>
+            </div>
+        </form>
 
     <!-- Form for updating time -->
     <div class="row-container">

@@ -293,6 +293,7 @@ p {
     padding-right: 5px;
 }
 
+
 .delete {
     background: none;
     border: none;
@@ -306,4 +307,13 @@ p {
 .delete img {
     height: 28px;
     width: 28px;
+/* Errors */
+
+.error-container {
+    width: 100vw;
+}
+
+p.error {
+    font-size: 16px;
+    padding: 0px;
 }

@@ -37,7 +37,7 @@ Route::middleware(['auth', 'throttle:60,1'])->group(function () {
     Route::get('register-car', RegisterCarController::class);
     Route::get('register-time', RegisterTimeController::class);
     Route::get('your-cars', YourCarsController::class);
-    Route::get('your-times', YourTimesController::class);
+    Route::get('your-times', YourTimesController::class)->name('your-times');
     Route::get('dashboard', DashboardController::class);
     Route::get('leaderboard/{track_id?}', LeaderboardController::class)->where('track_id', '[0-9]+')->defaults('track_id', 1);
 
