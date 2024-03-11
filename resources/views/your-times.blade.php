@@ -12,7 +12,7 @@
                     <tr>
                         <th>#</th>
                         <th>Car</th>
-                        <th>Lap Time</th>
+                        <th>Lap time</th>
                         <th>Track</th>
                         <th>Registration #</th>
                         <th>Date</th>
@@ -75,7 +75,7 @@
                     </div>
             </div>
             <div class="form-container">
-                <button class="btn-btn-primary" type="submit">Update time</button>
+                <button class="btn-btn-primary" type="submit">Update date</button>
             </div>
         </form>
 
@@ -130,7 +130,7 @@
                     </select>
                 </div>
                 <div class="form-container">
-                    <button class="btn-btn-primary" type="submit">Update time</button>
+                    <button class="btn-btn-primary" type="submit">Update track</button>
                 </div>
             </div>
         </form>

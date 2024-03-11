@@ -18,9 +18,9 @@
             <thead class="leaderboard-head">
                 <tr>
                     <th class="white-th">#</th>
-                    <th>Name</th>
+                    <th>Driver</th>
                     <th>Car</th>
-                    <th>Lap Time</th>
+                    <th>Lap time</th>
                     <th>Date</th>
                     <th>Registration #</th>
                 </tr>
