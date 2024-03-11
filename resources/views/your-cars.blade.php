@@ -26,7 +26,7 @@
             <form action="cars/toggleActive" method="post">
                 @csrf
                 <input type="hidden" name="car_id" value="{{ $car->id }}">
-                <button type="submit">@if(!$car->active) Activate @else Inactivate @endif</button>
+                <button type="submit">{{ !$car->active ? "Activate" : "Inactivate" }}</button>
             </form>
             </div>
         </div>
@@ -73,17 +73,6 @@
     <input type="text" name="model" id="model">
     <button class="btn-btn-primary" type="submit">Update Model</button>
 </form>
-
-{{-- <form class="form-container" action="cars/toggleActive" method="post">
-    @csrf
-    <label for="car_id">Car: </label>
-    <select name="car_id" id="car_id">
-        @foreach ($user->cars as $car)
-        <option value="{{ $car->id }}">{{ $car->model }} {{ $car->registration_number }}</option>
-        @endforeach
-    </select>
-    <button class="btn-btn-primary" type="submit">Toggle active/inactive</button>
-</form> --}}
 @endif
 @include('errors')
 @endsection

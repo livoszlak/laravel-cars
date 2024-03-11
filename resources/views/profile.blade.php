@@ -89,7 +89,6 @@
 <h3>Update time</h3>
 <form action="laptimes/{{$laptime->id}}/update" method="post">
     @csrf
-    {{-- @method('patch') --}}
     <label for="laptime">Laptime: </label>
     <select name="laptime_id" id="laptime_id">
         @foreach ($user->laptimes as $laptime)
