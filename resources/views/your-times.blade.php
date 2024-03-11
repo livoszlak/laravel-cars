@@ -22,7 +22,7 @@
                 <tbody class="leaderboard-body">
                     @foreach($laptimes as $index => $laptime)
                     <tr>
-                        <td>{{ $index + 1 }}</td>
+                        <td>{{ ($laptimes->currentPage() - 1) * $laptimes->perPage() + $index + 1 }}</td>
                         <td>{{ $laptime->car->model }}</td>
                         <td>{{$laptime->time}}</td>
                         <td>{{$laptime->track->track_name}}</td>
