@@ -30,7 +30,7 @@ class LaptimeController extends Controller
                 'date.required' => 'The date field must be filled in.',
                 'date.date' => 'The date must be a valid date.',
                 'time.required' => 'The time field must be filled in.',
-                'time.regex' => 'The time must be in the format mm:ss:msmsms.',
+                'time.regex' => 'The time must be in the format mm:ss:msmsms and cannot be over 59:59:999.',
             ];
 
             $this->validate($request, [
@@ -91,13 +91,13 @@ class LaptimeController extends Controller
             'date.filled' => 'The date field must be filled in.',
             'date.date' => 'The date must be a valid date.',
             'time.filled' => 'The time field must be filled in.',
-            'time.regex' => 'The time must be in the format mm:ss:msmsms.',
+            'time.regex' => 'The time must be in the format mm:ss:msmsms and cannot be over 59:59:999.',
             'track_id.filled' => 'The track field must be filled in.',
         ];
 
         $rules = [
             'date' => 'sometimes|filled|date',
-            'time' => 'sometimes|filled|string|regex:/^\d{2}:\d{2}:\d{3}$/',
+            'time' => ['required', 'string', 'regex:/^([0-5][0-9]):([0-5][0-9]):([0-9]{3})$/'],
             'track_id' => 'sometimes|filled'
         ];
 
