@@ -10,11 +10,11 @@
                 <thead class="leaderboard-head">
                     <tr>
                         <th>#</th>
-                        <th><a href="{{ route('your-times', ['sort' => 'car_model']) }}">Car</a></th>
-                        <th><a href="{{ route('your-times', ['sort' => 'time']) }}">Lap time</a></th>
-                        <th><a href="{{ route('your-times', ['sort' => 'track']) }}">Track</a></th>
-                        <th><a href="{{ route('your-times', ['sort' => 'registration_number']) }}">Registration #</a></th>
-                        <th><a href="{{ route('your-times', ['sort' => 'date']) }}">Date</a></th>
+                        <th><a href="{{ route('your-times', ['sort' => 'car_model', 'order' => $order]) }}">Car</a></th>
+                        <th><a href="{{ route('your-times', ['sort' => 'time', 'order' => $order]) }}">Lap time</a></th>
+                        <th><a href="{{ route('your-times', ['sort' => 'track', 'order' => $order]) }}">Track</a></th>
+                        <th><a href="{{ route('your-times', ['sort' => 'registration_number', 'order' => $order]) }}">Registration #</a></th>
+                        <th><a href="{{ route('your-times', ['sort' => 'date', 'order' => $order]) }}">Date</a></th>
                         <th> </th>
                     </tr>
                 </thead>
