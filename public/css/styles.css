@@ -26,8 +26,28 @@ body {
 
 .hero-container {
     width: 100%;
-    background-color: gray;
     height: 300px;
+    position: relative;
+}
+
+.hero-container h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 50px;
+    color: var(--snow);
+    z-index: 999;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+.hero-container img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    opacity: 0.6;
+    z-index: 1;
 }
 
 .form-container,
@@ -42,7 +62,6 @@ body {
     font-size: 30px;
     text-transform: uppercase;
 }
-
 .form-container,
 .login-container,
 .container {
@@ -146,6 +165,7 @@ h1 {
     background-color: var(--royalblue);
     padding: 15px;
     color: var(--snow);
+    text-transform: uppercase;
 }
 
 .leaderboard-body {
@@ -179,6 +199,13 @@ th {
 
 /* Dropdown */
 
+.dropdown-align {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+}
 .dropdown {
     position: relative;
     display: inline-block;
@@ -253,6 +280,9 @@ th {
     left: 0;
 }
 
+.selected-track {
+    color: var(--snow);
+}
 h1,
 h2,
 h3,
@@ -266,21 +296,26 @@ p {
 
 .car-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
 }
 
 .car-box {
+    text-align: left;
     font-size: 16px;
     color: var(--snow);
     padding: 1rem;
+    max-width: 130px;
+    flex-shrink: 0;
+    margin: auto;
 }
 
 .btn-container {
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 20px;
 }
 
 .car-box > ul {
@@ -293,6 +328,11 @@ p {
     padding-right: 5px;
 }
 
+.car-box > ul > li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .delete {
     background: none;
@@ -307,6 +347,7 @@ p {
 .delete img {
     height: 28px;
     width: 28px;
+}
 /* Errors */
 
 .error-container {
