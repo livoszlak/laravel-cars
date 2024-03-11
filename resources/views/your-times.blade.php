@@ -4,18 +4,17 @@
 <div>
     <h1>Your times</h1>
     @if($user->laptimes != null)
-
     <div class="leaderboard-parent">
         <div class="leaderboard-container">
             <table class="leaderboard">
                 <thead class="leaderboard-head">
                     <tr>
                         <th>#</th>
-                        <th>Car</th>
-                        <th>Lap time</th>
-                        <th>Track</th>
-                        <th>Registration #</th>
-                        <th>Date</th>
+                        <th><a href="{{ route('your-times', ['sort' => 'car_model']) }}">Car</a></th>
+                        <th><a href="{{ route('your-times', ['sort' => 'time']) }}">Lap time</a></th>
+                        <th><a href="{{ route('your-times', ['sort' => 'track']) }}">Track</a></th>
+                        <th><a href="{{ route('your-times', ['sort' => 'registration_number']) }}">Registration #</a></th>
+                        <th><a href="{{ route('your-times', ['sort' => 'date']) }}">Date</a></th>
                         <th> </th>
                     </tr>
                 </thead>
@@ -47,7 +46,7 @@
     @endif
 </div>
 
-<div> {{ $laptimes->links() }} </div>
+<div> {{ $laptimes->appends(['sort' => $sort])->links() }} </div>
 
 @if ($user->laptimes != null && count($user->laptimes) > 0)
 <div class="form-container">
