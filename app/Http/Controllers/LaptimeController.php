@@ -37,7 +37,7 @@ class LaptimeController extends Controller
                 'car_id' => 'required',
                 'track_id' => 'required',
                 'date' => 'required|date',
-                'time' => 'required|string|regex:/^\d{2}:\d{2}:\d{3}$/',
+                'time' => ['required', 'string', 'regex:/^([0-5][0-9]):([0-5][0-9]):([0-9]{3})$/'],
             ], $messages);
 
             $laptime = new Laptime;
