@@ -70,7 +70,7 @@
             <div class="row-container">
                 <label for="date">Date</label>
                     <div>
-                        <input type="date" name="date" id="date">
+                        <input type="date" name="date" id="date" max="{{ date('Y-m-d') }}">
                     </div>
             </div>
             <div class="form-container">
