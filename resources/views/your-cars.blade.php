@@ -8,6 +8,7 @@
         @foreach($user->cars as $car)
         <div class="car-box">
             <ul>
+                <img src="{{url('assets/icon_Car_.svg')}}" alt="car icon">
                 <li>{{$car->model}}</li>
                 <li>{{$car->registration_number}}</li>
                 <li>{{ count($car->laptimes) }} laptimes</li>
@@ -18,16 +19,16 @@
                 @endif
             </ul>
             <div class="btn-container">
-            <form action="cars/{{$car->id}}/delete" method="post">
-                @csrf
-                @method('patch')
-                <button type="submit">Delete</button>
-            </form>
-            <form action="cars/toggleActive" method="post">
-                @csrf
-                <input type="hidden" name="car_id" value="{{ $car->id }}">
-                <button type="submit">{{ !$car->active ? "Activate" : "Inactivate" }}</button>
-            </form>
+                <form action="cars/{{$car->id}}/delete" method="post">
+                    @csrf
+                    @method('patch')
+                    <button class="delete" type="submit"><img src="{{url('assets/icon-close.svg')}}" alt="car icon"></button>
+                </form>
+                <form action="cars/toggleActive" method="post">
+                    @csrf
+                    <input type="hidden" name="car_id" value="{{ $car->id }}">
+                    <button class="delete" type="submit"><img src="{{url('assets/Unionunavalible.svg')}}" alt="unavailable icon">{{ !$car->active ? "Activate" : "Inactivate" }}</button>
+                </form>
             </div>
         </div>
         @endforeach
@@ -43,7 +44,7 @@
 @if ($user->cars != null && count($user->cars) > 0)
 
 <form class="form-container" action="cars/update" method="post">
-<h3>Update car</h3>
+    <h3>Update car</h3>
 
     @csrf
     <label for="car_id">Car: </label>

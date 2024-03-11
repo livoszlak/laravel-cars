@@ -30,7 +30,7 @@
                         <form action="laptimes/{{$laptime->id}}/delete" method="post">
                             @csrf
                             @method('patch')
-                            <td><button type="submit">Delete</button></td>
+                            <td><button class="delete" type="submit"><img src="{{url('assets/icon-close.svg')}}" alt="Car app logo"></button></td>
                         </form>
                     </tr>
                     @endforeach
@@ -58,15 +58,23 @@
             @csrf
             <div class="row-container">
                 <label for="laptime_id">Laptime</label>
-                    <div>
-                        <select name="laptime_id" id="laptime_id">
-                    </div>
-                            @foreach ($user->laptimes as $laptime)
-                            <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>
-                            @endforeach
-                        </select>
+                <div>
+                    <select name="laptime_id" id="laptime_id">
+                </div>
+                @foreach ($user->laptimes as $laptime)
+                <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>
+                @endforeach
+                </select>
             </div>
+    </div>
+    <div class="row-container">
+        <label for="date">Date</label>
+        <div>
+            <input type="date" name="date" id="date">
         </div>
+
+
+
             <div class="row-container">
                 <label for="date">Date</label>
                     <div>
@@ -78,62 +86,62 @@
             </div>
         </form>
 
-        <!-- Form for updating time -->
-        <div class="row-container">
+    <!-- Form for updating time -->
+    <div class="row-container">
         <form class="form-container" action="laptimes/update" method="post">
             @csrf
             <div class="row-container">
                 <label for="laptime_id">Laptime</label>
-                    <div>
-                        <select name="laptime_id" id="laptime_id">
-                    </div>
-                            @foreach ($user->laptimes as $laptime)
-                                <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>
-                            @endforeach
-                        </select>
-            </div>
-        </div>
-            <div class="row-container">
-                <label for="time">Time</label>
-                    <div>
-                        <input type="text" name="time" id="time" placeholder="00:00:000">
-                    </div>
-            </div>
-            <div class="form-container">
-                <button class="btn-btn-primary" type="submit">Update time</button>
-            </div>
-        </form>
-
-        <!-- Form for updating track -->
-        <div class="row-container">
-        <form class="form-container" action="laptimes/update" method="post">
-            @csrf
-            <div class="row-container">
-                <label for="laptime_id">Laptime</label>
-                    <div>
-                        <select name="laptime_id" id="laptime_id">
-                    </div>
-                        @foreach ($user->laptimes as $laptime)
-                            <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>
-                        @endforeach
-                        </select>
-            </div>
-        </div>
-            <div class="row-container">
-                <label for="track_id">Track</label>
                 <div>
-                    <select name="track_id" id="track_id">
-                        @foreach($tracks as $track)
-                        <option value="{{ $track->id }}">{{ $track->track_name }}</option>
-                        @endforeach
-                    </select>
+                    <select name="laptime_id" id="laptime_id">
                 </div>
-                <div class="form-container">
-                    <button class="btn-btn-primary" type="submit">Update track</button>
-                </div>
+                @foreach ($user->laptimes as $laptime)
+                <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>
+                @endforeach
+                </select>
             </div>
-        </form>
     </div>
+    <div class="row-container">
+        <label for="time">Time</label>
+        <div>
+            <input type="text" name="time" id="time" placeholder="00:00:000">
+        </div>
+    </div>
+    <div class="form-container">
+        <button class="btn-btn-primary" type="submit">Update time</button>
+    </div>
+    </form>
+
+    <!-- Form for updating track -->
+    <div class="row-container">
+        <form class="form-container" action="laptimes/update" method="post">
+            @csrf
+            <div class="row-container">
+                <label for="laptime_id">Laptime</label>
+                <div>
+                    <select name="laptime_id" id="laptime_id">
+                </div>
+                @foreach ($user->laptimes as $laptime)
+                <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>
+                @endforeach
+                </select>
+            </div>
+    </div>
+    <div class="row-container">
+        <label for="track_id">Track</label>
+        <div>
+            <select name="track_id" id="track_id">
+                @foreach($tracks as $track)
+                <option value="{{ $track->id }}">{{ $track->track_name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-container">
+            <button class="btn-btn-primary" type="submit">Update track</button>
+        </div>
+    </div>
+    </form>
+</div>
 </div>
 @endif
 @include('errors')
