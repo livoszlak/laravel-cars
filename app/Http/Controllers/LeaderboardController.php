@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Laptime;
 use App\Models\Track;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LeaderboardController extends Controller
