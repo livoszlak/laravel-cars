@@ -12,7 +12,7 @@
                     <tr>
                         <th>#</th>
                         <th>Car</th>
-                        <th>Lap Time</th>
+                        <th>Lap time</th>
                         <th>Track</th>
                         <th>Registration #</th>
                         <th>Date</th>
@@ -22,7 +22,7 @@
                 <tbody class="leaderboard-body">
                     @foreach($laptimes as $index => $laptime)
                     <tr>
-                        <td>{{ $index + 1 }}</td>
+                        <td>{{ ($laptimes->currentPage() - 1) * $laptimes->perPage() + $index + 1 }}</td>
                         <td>{{ $laptime->car->model }}</td>
                         <td>{{$laptime->time}}</td>
                         <td>{{$laptime->track->track_name}}</td>
@@ -75,7 +75,7 @@
                     </div>
             </div>
             <div class="form-container">
-                <button class="btn-btn-primary" type="submit">Update time</button>
+                <button class="btn-btn-primary" type="submit">Update date</button>
             </div>
         </form>
 
@@ -130,7 +130,7 @@
                     </select>
                 </div>
                 <div class="form-container">
-                    <button class="btn-btn-primary" type="submit">Update time</button>
+                    <button class="btn-btn-primary" type="submit">Update track</button>
                 </div>
             </div>
         </form>

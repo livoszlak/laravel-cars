@@ -8,11 +8,10 @@
         <label for="car">Car: </label>
         <select name="car_id" id="car">
             @if ($user->cars != null && count($user->cars) > 0)
-            @foreach ($user->cars as $car)
-            <option value="{{ $car->id }}">{{ $car->model }} {{ $car->registration_number }}</option>
-            @endforeach
+                @foreach ($user->cars as $car)
+                    <option value="{{ $car->id }}">{{ $car->model }} {{ $car->registration_number }}</option>
+                @endforeach
             @endif
-
         </select>
         <div class="row-container">
             <label for="date">Date: </label>
@@ -31,14 +30,14 @@
             <div>
                 <label for="track">Track: </label>
             </div>
-            <select name="track_id" id="track_id">
+                <select name="track_id" id="track_id">
         </div>
-        @foreach($tracks as $track)
-        <option value="{{ $track->id }}">{{ $track->track_name }}</option>
-        @endforeach
-        </select>
+                    @foreach($tracks as $track)
+                        <option value="{{ $track->id }}">{{ $track->track_name }}</option>
+                    @endforeach
+                </select>
 </div>
-<button class="btn-btn-primary" type="submit">Add record time </button>
-</form>
+    <button class="btn-btn-primary" type="submit">Add record time </button>
+    </form>
 @include('errors')
 @endsection

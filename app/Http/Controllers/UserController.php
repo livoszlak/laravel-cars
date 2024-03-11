@@ -43,9 +43,9 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
             $user->save();
 
-            return redirect('/')->with(['user' => $user]);
+            return redirect('login')->with(['user' => $user]);
         } catch (ValidationException $e) {
-            return redirect('/')->withErrors('An unexpected error occurred.');
+            return redirect('/')->withErrors($e->errors());
         } catch (\Exception $e) {
             return redirect('/')->withErrors('An unexpected error occurred.');
         }
