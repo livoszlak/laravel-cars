@@ -14,6 +14,7 @@
 </div>
 @endsection
 @section('content')
+<h1>Leaderboard</h1>
 
 <div class="dropdown-align">
     <div class="dropdown">
