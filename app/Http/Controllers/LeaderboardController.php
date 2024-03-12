@@ -19,7 +19,8 @@ class LeaderboardController extends Controller
             ->orderBy('time', 'asc')
             ->take(10)
             ->get();
+        $currentTrack = Track::find($track_id);
 
-        return view('leaderboard', ['user' => $user, 'laptimes' => $laptimes, 'tracks' => $tracks]);
+        return view('leaderboard', ['user' => $user, 'laptimes' => $laptimes, 'tracks' => $tracks, 'currentTrack' => $currentTrack->track_name]);
     }
 }

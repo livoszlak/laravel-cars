@@ -12,6 +12,10 @@
     </div>
 </div>
 
+<div class="current-track">
+    {{ $currentTrack }}
+</div>
+
 <div class="leaderboard-parent">
     <div class="leaderboard-container">
         <table class="leaderboard">
