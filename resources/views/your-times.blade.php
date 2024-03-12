@@ -72,7 +72,7 @@
             <div class="row-container">
                 <label for="laptime_id">Laptime</label>
                 <div>
-                    <select name="laptime_id" id="laptime_id">
+                    <select name="id" id="laptime_id">
                 </div>
                 @foreach ($user->laptimes as $laptime)
                 <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>
@@ -106,7 +106,7 @@
                 <div class="row-container">
                     <label for="laptime_id">Laptime</label>
                     <div>
-                        <select name="laptime_id" id="laptime_id">
+                        <select name="id" id="laptime_id">
                     </div>
                     @foreach ($user->laptimes as $laptime)
                     <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>
@@ -132,7 +132,7 @@
                 <div class="row-container">
                     <label for="laptime_id">Laptime</label>
                     <div>
-                        <select name="laptime_id" id="laptime_id">
+                        <select name="id" id="laptime_id">
                     </div>
                     @foreach ($user->laptimes as $laptime)
                     <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>

@@ -87,7 +87,11 @@ class LaptimeController extends Controller
      */
     public function update(Request $request, Laptime $laptime)
     {
-        $id = $request->input('laptime_id');
+        $id = $request->input('id');
+
+        if ($laptime === null) {
+            return redirect('your-times')->withErrors("Laptime not found.");
+        }
 
         $messages = [
             'date.filled' => 'The date field must be filled in.',
