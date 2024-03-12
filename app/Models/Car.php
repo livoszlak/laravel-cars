@@ -18,8 +18,17 @@ class Car extends Model
         'active'
     ];
 
+    protected $casts = [
+        'active' => 'boolean',
+    ];
+
     public function laptimes(): HasMany
     {
         return $this->hasMany(Laptime::class, 'car_id');
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

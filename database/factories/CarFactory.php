@@ -38,11 +38,4 @@ class CarFactory extends Factory
             'user_id' => null
         ];
     }
-
-    /*     public function configure()
-    {
-        return $this->afterCreating(function (Car $car) {
-            $car->laptimes()->saveMany(Laptime::factory(5)->for(Track::all()->random())->make());
-        });
-    } */
 }

@@ -81,7 +81,7 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        $id = $request->input('car_id');
+        $id = $request->input('id');
 
         $messages = [
             'registration_number.filled' => 'The registration number field must be filled in.',
@@ -103,7 +103,7 @@ class CarController extends Controller
         }
 
         try {
-            $car = Car::find($id);
+            $car = Car::findOrFail($id);
             $car->fill($request->only('registration_number', 'model'));
             $car->save();
             return redirect('your-cars')->with(['car' => $car]);
@@ -129,7 +129,7 @@ class CarController extends Controller
         $id = $request->input('car_id');
 
         try {
-            $car = Car::find($id);
+            $car = Car::findOrFail($id);
             if ($car->active) {
                 $car->active = false;
             } else if (!$car->active) {
