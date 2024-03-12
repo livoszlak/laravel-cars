@@ -38,7 +38,7 @@ class CarControllerTest extends TestCase
         $response->assertRedirect('your-cars');
     }
 
-    public function test_create_car_with_invalid_data(): void
+    public function test_register_car_with_invalid_data(): void
     {
         $user = User::factory()->create();
 
@@ -93,5 +93,25 @@ class CarControllerTest extends TestCase
 
     public function test_toggle_active_car(): void
     {
+        $user = User::factory()->create();
+        $car = Car::factory()->create(['user_id' => $user->id, 'active' => true]);
+
+        $this->actingAs($user);
+
+        $response = $this->post(route('cars/toggleActive'), ['car_id' => $car->id]);
+
+        $updatedCar = Car::findOrFail($car->id);
+
+        $this->assertFalse($updatedCar->active);
+
+        $response->assertRedirect('your-cars');
+
+        $response = $this->post(route('cars/toggleActive'), ['car_id' => $car->id]);
+
+        $updatedCar = Car::findOrFail($car->id);
+
+        $this->assertTrue($updatedCar->active);
+
+        $response->assertRedirect('your-cars');
     }
 }
