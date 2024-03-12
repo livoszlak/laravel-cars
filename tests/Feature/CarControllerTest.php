@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Models\Car;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class CarControllerTest extends TestCase
@@ -13,7 +12,7 @@ class CarControllerTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * 
+     * Test to let user register a car
      */
     public function test_register_car(): void
     {
@@ -38,6 +37,9 @@ class CarControllerTest extends TestCase
         $response->assertRedirect('your-cars');
     }
 
+    /**
+     * Test to let user register a car with invalid new registration_number or model and get error message
+     */
     public function test_register_car_with_invalid_data(): void
     {
         $user = User::factory()->create();
@@ -54,6 +56,9 @@ class CarControllerTest extends TestCase
         $response->assertSessionHasErrors(['registration_number', 'model']);
     }
 
+    /**
+     * Test to let user update a car's registration_number or model
+     */
     public function test_update_car(): void
     {
         $user = User::factory()->create();
@@ -77,6 +82,9 @@ class CarControllerTest extends TestCase
         $response->assertRedirect('your-cars');
     }
 
+    /**
+     * Test to let user delete a car
+     */
     public function test_delete_car(): void
     {
         $user = User::factory()->create();
@@ -91,6 +99,9 @@ class CarControllerTest extends TestCase
         $response->assertRedirect('your-cars');
     }
 
+    /**
+     * Test to let user toggle the active boolean on a car (which determines whether the user can add times to or update the car or not)
+     */
     public function test_toggle_active_car(): void
     {
         $user = User::factory()->create();
