@@ -1,5 +1,18 @@
 @extends('layout')
 @section('title', 'Car app')
+@section ('sidenav')
+<div id="mySidenav" class="sidenav">
+    <div class="sidenav-logo" onclick="closeNav()">
+        <img class="closebtn" src="{{url('assets/Logo-placeholder.svg')}}" alt="Car app logo">
+    </div>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/your-cars">Your cars</a>
+    <a href="/your-times">Your times</a>
+    <a href="/register-car">Register new car</a>
+    <a href="/register-time">Register new time</a>
+    <a href="/leaderboard">Leaderboard</a>
+</div>
+@endsection
 @section('content')
 <div class="form-container">
     <h1>Your cars</h1>

@@ -14,14 +14,18 @@
 
 <body>
     <header>
-        <div class="logo">
-            <a href="/dashboard"><img src="{{url('assets/Logo-placeholder.svg')}}" alt="Car app logo"></a>
+        <div class="logo" onclick="openNav()">
+            <img src="{{url('assets/Logo-placeholder.svg')}}" alt="Car app logo">
         </div>
+        @yield('sidenav')
+
     </header>
 
     <main>
         @yield('content')
     </main>
+
+    <script src="{{ asset('js/sidenav.js') }}"></script>
 
     <footer>
     </footer>
