@@ -14,8 +14,9 @@
 </div>
 @endsection
 @section('content')
-<div>
+<h1>Register car</h1>
 
+<div>
     <form class="form-container" action="cars" method="post">
         <h3>Add car</h3>
         @csrf

@@ -14,6 +14,7 @@
 </div>
 @endsection
 @section('content')
+<h1>Register time</h1>
 <div class="form-container">
     <h3>Add time</h3>
     <form class="form-container" action="laptimes" method="post">

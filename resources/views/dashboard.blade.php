@@ -1,6 +1,8 @@
 @extends('layout')
 @section('title', 'Car app')
 @section('content')
+<h1>Dashboard</h1>
+
 <div class="form-container">
     <p>Hello, {{ $user->name }}!</p>
 </div>
