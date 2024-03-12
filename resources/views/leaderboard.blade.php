@@ -29,6 +29,7 @@
 
 <div class="current-track">
     {{ $currentTrack }}
+    {{ $laptimeAverage }}
 </div>
 
 <div class="leaderboard-parent">
