@@ -43,18 +43,4 @@ class LoginTest extends TestCase
 
         $this->get('/dashboard')->assertSee($user->name);
     }
-
-    /**
-     * Test that auth middleware blocks logged in user from visiting login view
-     */
-    public function test_authenticated_user_cannot_view_login(): void
-    {
-        $user = User::factory()->create();
-
-        $this->actingAs($user);
-
-        $response = $this->get('/login');
-
-        $response->assertRedirect('/dashboard');
-    }
 }

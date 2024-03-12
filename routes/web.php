@@ -26,28 +26,28 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware(['guest', 'throttle:60,1'])->group(function () {
-    Route::view('/', 'index')->name('login');
+    Route::view('/', 'index')->name('index');
     Route::view('register', 'register')->name('register');
     Route::view('login', 'login')->name('login');
     Route::post('login', LoginController::class);
-    Route::post('users', [UserController::class, 'create']);
+    Route::post('users', [UserController::class, 'create'])->name('users');
 });
 
 Route::middleware(['auth', 'throttle:60,1'])->group(function () {
-    Route::get('register-car', RegisterCarController::class);
-    Route::get('register-time', RegisterTimeController::class);
-    Route::get('your-cars', YourCarsController::class);
+    Route::get('register-car', RegisterCarController::class)->name('register-car');
+    Route::get('register-time', RegisterTimeController::class)->name('register-time');
+    Route::get('your-cars', YourCarsController::class)->name('your-cars');
     Route::get('your-times', YourTimesController::class)->name('your-times');
-    Route::get('dashboard', DashboardController::class);
-    Route::get('leaderboard/{track_id?}', LeaderboardController::class)->where('track_id', '[0-9]+')->defaults('track_id', 1);
+    Route::get('dashboard', DashboardController::class)->name('dashboard');
+    Route::get('leaderboard/{track_id?}', LeaderboardController::class)->where('track_id', '[0-9]+')->defaults('track_id', 1)->name('leaderboard');
 
-    Route::post('logout', LogoutController::class);
-    Route::post('laptimes', [LaptimeController::class, 'create']);
-    Route::post('laptimes/update', [LaptimeController::class, 'update']);
-    Route::post('cars', [CarController::class, 'create']);
-    Route::post('cars/update', [CarController::class, 'update']);
-    Route::post('cars/toggleActive', [CarController::class, 'toggleActive']);
+    Route::post('logout', LogoutController::class)->name('logout');
+    Route::post('laptimes', [LaptimeController::class, 'create'])->name('laptimes');
+    Route::post('laptimes/update', [LaptimeController::class, 'update'])->name('laptimes/update');
+    Route::post('cars', [CarController::class, 'create'])->name('cars');
+    Route::post('cars/update', [CarController::class, 'update'])->name('cars/update');
+    Route::post('cars/toggleActive', [CarController::class, 'toggleActive'])->name('cars/toggleActive');
 
-    Route::patch('laptimes/{laptime}/delete', [LaptimeController::class, 'destroy']);
-    Route::patch('cars/{car}/delete', [CarController::class, 'destroy']);
+    Route::patch('laptimes/{laptime}/delete', [LaptimeController::class, 'destroy'])->name('laptimes/{laptime}/delete');
+    Route::patch('cars/{car}/delete', [CarController::class, 'destroy'])->name('cars/{car}/delete');
 });
