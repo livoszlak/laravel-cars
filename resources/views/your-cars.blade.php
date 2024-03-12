@@ -65,7 +65,7 @@
 
     @csrf
     <label for="car_id">Car: </label>
-    <select name="car_id" id="car_id">
+    <select name="id" id="car_id">
         @foreach ($user->cars as $car)
         @if ($car->active == true)
         <option value="{{ $car->id }}">{{ $car->model }} {{ $car->registration_number }}</option>
@@ -80,7 +80,7 @@
 <form class="form-container" action="cars/update" method="post">
     @csrf
     <label for="car_id">Car: </label>
-    <select name="car_id" id="car_id">
+    <select name="id" id="car_id">
         @foreach ($user->cars as $car)
         @if ($car->active == true)
         <option value="{{ $car->id }}">{{ $car->model }} {{ $car->registration_number }}</option>
