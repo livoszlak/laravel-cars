@@ -13,9 +13,11 @@ class LaptimeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($parameter)
     {
-        //
+        $user = Auth::user();
+        $laptimes = Laptime::where('user_id', $user->id)->orderBy($parameter, 'asc')->get();
+        view('your-times', ['user' => $user, 'laptimes' => $laptimes]);
     }
 
     /**
