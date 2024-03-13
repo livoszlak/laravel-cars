@@ -38,4 +38,16 @@ class GuestViewsTest extends TestCase
             $response->assertRedirect('/dashboard');
         }
     }
+
+    public function test_guest_users_can_view_guest_routes(): void
+    {
+        $response = $this->get(route('index'));
+        $response->assertStatus(200);
+
+        $response = $this->get(route('register'));
+        $response->assertStatus(200);
+
+        $response = $this->get(route('login'));
+        $response->assertStatus(200);
+    }
 }

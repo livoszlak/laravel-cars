@@ -115,10 +115,10 @@ class LaptimeController extends Controller
 
         try {
             $laptime = Laptime::find($id);
-            $laptime->date = $request->date;
+            /*             $laptime->date = $request->date;
             $laptime->time = $request->date;
-            $laptime->track_id = $request->track_id;
-            /* $laptime->fill($request->only('date', 'time', 'track_id')); */
+            $laptime->track_id = $request->track_id; */
+            $laptime->fill($request->only('date', 'time', 'track_id'));
             $laptime->save();
             return redirect('your-times')->with(['laptime' => $laptime]);
         } catch (ValidationException $e) {
