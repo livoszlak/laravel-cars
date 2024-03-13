@@ -28,6 +28,14 @@
     <script src="{{ asset('js/sidenav.js') }}"></script>
 
     <footer>
+        <div class="footer">
+            <div class="footerlogos">
+                <a href="https://www.hnbrn.se/">
+                    <img class="hnbrnlogo" src="{{url('assets/hnbrnlogo.svg')}}" alt="hnbrn logo"> </a>
+                <a href="/index"> <img src="{{url('assets/Logo-placeholder.svg')}}" alt="Car app logo"> </a>
+            </div>
+
+        </div>
     </footer>
 </body>
 

@@ -20,19 +20,15 @@
     <div class="car-container">
         @foreach($user->cars as $car)
         <div class="car-box">
-            <div class="form-container">
-                <img src="{{url('assets/icon_Car_.svg')}}" alt="car icon">
-            </div>
             <ul>
-
+                @if(!$car->active)
+                <img class="inactive" src="{{url('assets/icon_Car_grey.svg')}}" alt="car icon">
+                @else
+                <img src="{{url('assets/icon_Car_.svg')}}" alt="car icon">
+                @endif
                 <li>{{$car->model}}</li>
                 <li>{{$car->registration_number}}</li>
                 <li>{{ count($car->laptimes) }} laptimes</li>
-                @if(!$car->active)
-                <li>Inactive</li>
-                @else
-                <li>Active</li>
-                @endif
             </ul>
             <div class="btn-container">
                 <form class="form-container" action="cars/{{$car->id}}/delete" method="post">

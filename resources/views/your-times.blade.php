@@ -79,24 +79,24 @@
                 @endforeach
                 </select>
             </div>
-    </div>
-    <div class="row-container">
-        <label for="date">Date</label>
-        <div>
-            <input type="date" name="date" id="date">
-        </div>
 
 
-
-        <div class="row-container">
             <label for="date">Date</label>
             <div>
-                <input type="date" name="date" id="date" max="{{ date('Y-m-d') }}">
+                <input type="date" name="date" id="date">
             </div>
-        </div>
-        <div class="form-container">
-            <button class="btn-btn-primary" type="submit">Update date</button>
-        </div>
+
+
+
+            <div class="row-container">
+                <label for="date">Date</label>
+                <div>
+                    <input type="date" name="date" id="date" max="{{ date('Y-m-d') }}">
+                </div>
+            </div>
+            <div class="form-container">
+                <button class="btn-btn-primary" type="submit">Update date</button>
+            </div>
         </form>
 
         <!-- Form for updating time -->

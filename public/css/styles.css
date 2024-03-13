@@ -198,7 +198,12 @@ th {
     padding-bottom: 15px;
 }
 
-/* Dropdown */
+a {
+    color: var(--snow);
+    text-decoration: none;
+}
+
+/* select track */
 
 .dropdown-align {
     display: flex;
@@ -335,6 +340,11 @@ p {
     text-overflow: ellipsis;
 }
 
+.inactive {
+    color: grey;
+}
+
+/* delete buttons */
 .delete {
     background: none;
     border: none;
@@ -403,4 +413,26 @@ p.error {
     text-align: center;
     padding: 20px 0;
     transition: padding 0.3s ease;
+}
+
+/* Footer */
+
+.footer {
+    background-color: var(--crimson);
+    width: 100%;
+    height: 50px;
+    margin-top: 0;
+    margin-bottom: -10px;
+    padding-bottom: 5px;
+}
+
+.footerlogos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+main {
+    min-height: calc(100vh - 100px);
 }
