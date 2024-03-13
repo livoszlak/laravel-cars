@@ -28,13 +28,13 @@ class AuthViewsTest extends TestCase
         $postRoutes = [
             'logout',
             'laptimes',
-            'laptimes/update',
             'cars',
             'cars/update',
             'cars/toggleActive',
         ];
 
         $patchRoutes = [
+            'laptimes/update',
             'laptimes/{laptime}/delete',
             'cars/{car}/delete',
         ];

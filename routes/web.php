@@ -43,7 +43,7 @@ Route::middleware(['auth', 'throttle:60,1'])->group(function () {
 
     Route::post('logout', LogoutController::class)->name('logout');
     Route::post('laptimes', [LaptimeController::class, 'create'])->name('laptimes');
-    Route::post('laptimes/update', [LaptimeController::class, 'update'])->name('laptimes/update');
+    Route::patch('laptimes/update', [LaptimeController::class, 'update'])->name('laptimes/update');
     Route::post('cars', [CarController::class, 'create'])->name('cars');
     Route::post('cars/update', [CarController::class, 'update'])->name('cars/update');
     Route::post('cars/toggleActive', [CarController::class, 'toggleActive'])->name('cars/toggleActive');

@@ -19,6 +19,10 @@ class Laptime extends Model
         'time'
     ];
 
+    protected $casts = [
+        'date' => 'date:Y-m-d'
+    ];
+
     public function car(): BelongsTo
     {
         return $this->belongsTo(Car::class);

@@ -103,7 +103,7 @@ class LaptimeController extends Controller
 
         $rules = [
             'date' => 'sometimes|filled|date',
-            'time' => ['required', 'string', 'regex:/^([0-5][0-9]):([0-5][0-9]):([0-9]{3})$/'],
+            'time' => ['sometimes', 'string', 'regex:/^([0-5][0-9]):([0-5][0-9]):([0-9]{3})$/'],
             'track_id' => 'sometimes|filled'
         ];
 
@@ -115,7 +115,10 @@ class LaptimeController extends Controller
 
         try {
             $laptime = Laptime::find($id);
-            $laptime->fill($request->only('date', 'time', 'track_id'));
+            $laptime->date = $request->date;
+            $laptime->time = $request->date;
+            $laptime->track_id = $request->track_id;
+            /* $laptime->fill($request->only('date', 'time', 'track_id')); */
             $laptime->save();
             return redirect('your-times')->with(['laptime' => $laptime]);
         } catch (ValidationException $e) {
