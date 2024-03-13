@@ -2,7 +2,7 @@ function openNav() {
     if (x.matches) {
         document.getElementById("mySidenav").style.width = "100%";
     } else {
-        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("mySidenav").style.width = "225px";
     }
 }
 

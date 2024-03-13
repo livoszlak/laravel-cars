@@ -57,8 +57,19 @@
 @if ($user->cars != null && count($user->cars) > 0)
 
 <div class="instructions">
-    <h2> How to update your car </h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
+    <h2>How to update your car </h2>
+
+    <h3>Register new registration number</h3>
+
+
+    <p>Car: Choose the car you want to update.</p>
+
+
+    <p>Registration #: Enter the new registration number.</p>
+
+
+    <p>Click the "Update Registration #" button.</p>
+
 </div>
 
 <form class="form-container" action="cars/update" method="post">
@@ -77,6 +88,21 @@
     <input type="text" name="registration_number" id="registration_number">
     <button class="btn-btn-primary" type="submit">Update Registration #</button>
 </form>
+
+<div class="instructions">
+
+    <h3>Register new car model</h3>
+
+
+    <p>Car: Choose the car you want to update.</p>
+
+
+    <p>Model: Enter the new model name.</p>
+
+
+    <p>Click the "Update Model" button.</p>
+
+</div>
 
 <form class="form-container" action="cars/update" method="post">
     @csrf
