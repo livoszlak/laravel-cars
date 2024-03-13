@@ -17,7 +17,12 @@
 <h1>Register time</h1>
 <div class="instructions">
     <h2> How to register a new time</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
+
+    <p>Car: Choose the car you want to add a new time to.</p>
+    <p>Date: Enter the new the date.</p>
+    <p>Time: Enter the new time in the format 00:00:000.</p>
+    <p>Track: Choose the track where the time was recorded.</p>
+    <p>Click the "Add record time" button.</p>
 </div>
 <div class="form-container">
     <h3>Add time</h3>
@@ -31,31 +36,23 @@
             @endforeach
             @endif
         </select>
-        <div class="row-container">
-            <label for="date">Date: </label>
-            <div>
-                <input type="date" name="date" id="date" max="{{ date('Y-m-d') }}">
-            </div>
-        </div>
-        <div class="row-container">
-            <label for="time">Time</label>
-            <div>
-                <input type="text" name="time" id="time" placeholder="00:00:000">
-            </div>
-        </div>
 
-        <div class="row-container">
-            <div>
-                <label for="track">Track: </label>
-            </div>
+        <label for="date">Date: </label>
+
+        <input type="date" name="date" id="date" max="{{ date('Y-m-d') }}">
+        < <label for="time">Time</label>
+
+            <input type="text" name="time" id="time" placeholder="00:00:000">
+            <label for="track">Track: </label>
+
             <select name="track_id" id="track_id">
-        </div>
-        @foreach($tracks as $track)
-        <option value="{{ $track->id }}">{{ $track->track_name }}</option>
-        @endforeach
-        </select>
-</div>
-<button class="btn-btn-primary" type="submit">Add record time </button>
-</form>
-@include('errors')
-@endsection
+
+                @foreach($tracks as $track)
+                <option value="{{ $track->id }}">{{ $track->track_name }}</option>
+                @endforeach
+            </select>
+
+            <button class="btn-btn-primary" type="submit">Add record time </button>
+
+            @include('errors')
+            @endsection
