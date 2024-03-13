@@ -14,6 +14,7 @@
 </div>
 @endsection
 @section('content')
+
 <div>
     <h1>Your times</h1>
     @if($user->laptimes != null)
@@ -36,7 +37,7 @@
                     <tr>
                         <td>{{ ($laptimes->currentPage() - 1) * $laptimes->perPage() + $index + 1 }}</td>
                         <td>{{ $laptime->car->model }}</td>
-                        <td>{{$laptime->time}}</td>
+                        <td>{{ $laptime->time }}</td>
                         <td>{{$laptime->track->track_name}}</td>
                         <td>{{ $laptime->car->registration_number }}</td>
                         <td>{{$laptime->date}}</td>
@@ -102,11 +103,11 @@
                     <label for="laptime_id">Laptime</label>
                     <div>
                         <select name="id" id="laptime_id">
+                            @foreach ($user->laptimes as $laptime)
+                            <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>
+                            @endforeach
+                        </select>
                     </div>
-                    @foreach ($user->laptimes as $laptime)
-                    <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>
-                    @endforeach
-                    </select>
                 </div>
         </div>
         <div class="row-container">
