@@ -32,7 +32,7 @@
             <div class="footerlogos">
                 <a href="https://www.hnbrn.se/">
                     <img class="hnbrnlogo" src="{{url('assets/hnbrnlogo.svg')}}" alt="hnbrn logo"> </a>
-                <a href="/index"> <img src="{{url('assets/Logo-placeholder.svg')}}" alt="Car app logo"> </a>
+                <a href="/"> <img src="{{url('assets/Logo-placeholder.svg')}}" alt="Car app logo"> </a>
             </div>
 
         </div>
