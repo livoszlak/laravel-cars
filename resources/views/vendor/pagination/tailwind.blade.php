@@ -20,7 +20,6 @@
         color: var(--snow);
         gap: 15px;
         font-family: 'Poppins', sans-serif;
-        font-size: 20px;
 
     }
 
@@ -29,12 +28,10 @@
         justify-content: center;
         flex-direction: column;
         color: var(--snow);
-        font-size: 20px;
         font-family: 'Poppins', sans-serif;
     }
 
     .page p {
-        font-size: 20px;
         margin: 0;
     }
 
