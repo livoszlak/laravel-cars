@@ -74,24 +74,17 @@
     <div class="row-container">
         <form class="form-container" action="laptimes/update" method="post">
             @csrf
+            {{-- @method('patch') --}}
             <div class="row-container">
                 <label for="laptime_id">Laptime</label>
                 <div>
                     <select name="id" id="laptime_id">
+                        @foreach ($user->laptimes as $laptime)
+                        <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>
+                        @endforeach
+                    </select>
                 </div>
-                @foreach ($user->laptimes as $laptime)
-                <option value="{{ $laptime->id }}">{{ $laptime->date }} {{ $laptime->car->model }} {{ $laptime->car->registration_number }}</option>
-                @endforeach
-                </select>
             </div>
-
-
-            <label for="date">Date</label>
-            <div>
-                <input type="date" name="date" id="date">
-            </div>
-
-
 
             <div class="row-container">
                 <label for="date">Date</label>

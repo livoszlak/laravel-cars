@@ -103,7 +103,7 @@ class LaptimeController extends Controller
 
         $rules = [
             'date' => 'sometimes|filled|date',
-            'time' => ['required', 'string', 'regex:/^([0-5][0-9]):([0-5][0-9]):([0-9]{3})$/'],
+            'time' => ['sometimes', 'string', 'regex:/^([0-5][0-9]):([0-5][0-9]):([0-9]{3})$/'],
             'track_id' => 'sometimes|filled'
         ];
 
