@@ -15,6 +15,10 @@
 @endsection
 @section('content')
 <h1>Register time</h1>
+<div class="instructions">
+    <h2> How to register a new time</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
+</div>
 <div class="form-container">
     <h3>Add time</h3>
     <form class="form-container" action="laptimes" method="post">

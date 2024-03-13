@@ -56,6 +56,11 @@
 
 @if ($user->cars != null && count($user->cars) > 0)
 
+<div class="instructions">
+    <h2> How to update your car </h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
+</div>
+
 <form class="form-container" action="cars/update" method="post">
     <h3>Update car</h3>
 

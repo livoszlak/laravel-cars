@@ -12,6 +12,54 @@
     font-style: normal;
 }
 
+/* Desktop/Laptop Styles */
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    h3 {
+        font-size: 1.5em;
+    }
+    p {
+        font-size: 1em;
+    }
+}
+
+/* Tablet Styles */
+@media (max-width: 1023px) {
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+    p {
+        font-size: 0.9em;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    h2 {
+        font-size: 1.2em;
+    }
+    h3 {
+        font-size: 1em;
+    }
+    p {
+        font-size: 0.8em;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .button-container {
         flex-direction: column;
@@ -32,7 +80,6 @@ body {
 
 .hero-container h1 {
     font-family: "Poppins", sans-serif;
-    font-size: 50px;
     color: var(--snow);
     z-index: 999;
     position: absolute;
@@ -59,7 +106,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
     text-transform: uppercase;
 }
 .form-container,
@@ -85,7 +131,6 @@ body {
     display: flex;
     text-align: center;
     color: var(--snow);
-    font-size: 20px;
     height: 50px;
     margin: 15px;
     border-radius: 20px;
@@ -103,7 +148,6 @@ label,
 select {
     width: 300px;
     height: 50px;
-    font-size: 30px;
     margin: 5px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -117,7 +161,6 @@ p,
 h1 {
     text-align: center;
     color: var(--snow);
-    font-size: 32px;
 }
 
 .logo {
@@ -221,7 +264,6 @@ a {
     background-color: var(--crimson);
     color: var(--snow);
     padding: 16px;
-    font-size: 16px;
     border: none;
     cursor: pointer;
 }
@@ -309,7 +351,6 @@ p {
 
 .car-box {
     text-align: left;
-    font-size: 16px;
     color: var(--snow);
     padding: 1rem;
     max-width: 130px;
@@ -366,7 +407,6 @@ p {
 }
 
 p.error {
-    font-size: 16px;
     padding: 0px;
 }
 
@@ -390,7 +430,6 @@ p.error {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 25px;
     color: var(--snow);
     display: block;
     transition: 0.3s;
@@ -404,7 +443,6 @@ p.error {
     position: absolute;
     top: 0;
     right: 25px;
-    font-size: 36px;
     margin-left: 50px;
     padding: 15px;
 }
@@ -435,4 +473,18 @@ p.error {
 
 main {
     min-height: calc(100vh - 100px);
+}
+
+/* Instructions */
+
+.instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.instructions p {
+    text-align: center;
+    width: 300px;
 }

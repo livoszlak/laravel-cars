@@ -62,6 +62,11 @@
 <div> {{ $laptimes->appends(['sort' => $sort])->links() }} </div>
 
 @if ($user->laptimes != null && count($user->laptimes) > 0)
+
+<div class="instructions">
+    <h2> How to update your laptime </h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
+</div>
 <div class="form-container">
     <h3>Update your laptimes</h3>
 
